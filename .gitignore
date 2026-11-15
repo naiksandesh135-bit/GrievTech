@@ -1,0 +1,26 @@
+﻿# Android Studio
+.gradle/
+.idea/
+local.properties
+*.iml
+
+# Build files
+build/
+*/build/
+app/build/
+
+# Signing credentials
+*.jks
+*.keystore
+
+# Environment and secrets
+.env
+.env.*
+secrets.properties
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

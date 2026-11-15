@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GrievTech</string>
+    <string name="app_tagline">Raise · Track · Resolve</string>
+    <string name="app_subtitle">Empowering Citizens for Better Cities</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Report in Seconds</string>
+    <string name="onboarding_desc_1">Capture photos of potholes, garbage, or broken lights with instant automatic GPS geo-tagging.</string>
+    <string name="onboarding_title_2">Track Every Step</string>
+    <string name="onboarding_desc_2">Follow real-time status updates from Submission to Assignment and Final Resolution.</string>
+    <string name="onboarding_title_3">Transparent Resolution</string>
+    <string name="onboarding_desc_3">Municipal accountability driving UN SDG 11 (Sustainable Cities) and SDG 16 (Strong Institutions).</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+
+    <!-- Language Selector -->
+    <string name="select_language">Select Language</string>
+    <string name="language_english">English</string>
+    <string name="language_kannada">ಕನ್ನಡ (Kannada)</string>
+    <string name="language_hindi">हिन्दी (Hindi)</string>
+    <string name="language_tamil">தமிழ் (Tamil)</string>
+    <string name="language_telugu">తెలుగు (Telugu)</string>
+
+    <!-- Actions & Common -->
+    <string name="login">Sign In</string>
+    <string name="register">Register</string>
+    <string name="sign_out">Log Out</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="retry">Retry</string>
+    <string name="close">Close</string>
+    <string name="back">Back</string>
+    <string name="loading">Loading...</string>
+    <string name="search">Search</string>
+    <string name="or">or</string>
+
+    <!-- Landing Screen -->
+    <string name="landing_hero_title">Public Grievance Redressal Made Simple</string>
+    <string name="landing_hero_subtitle">Report civic issues in your neighborhood and track resolution in real time.</string>
+    <string name="landing_register_btn">Register Account</string>
+    <string name="landing_citizen_login_btn">Citizen Sign In</string>
+    <string name="landing_admin_login_btn">Administrator Access</string>
+    <string name="landing_login_btn">Sign In to Dashboard</string>
+    <string name="landing_track_btn">Track Grievance with ID</string>
+
+    <string name="issues_section_title">Issues We Handle</string>
+    <string name="issues_section_subtitle">Tap any category to report an issue in your area</string>
+
+    <string name="issue_potholes_title">Potholes &amp; Roads</string>
+    <string name="issue_potholes_desc">Damaged roads, dangerous potholes, broken footpaths</string>
+    <string name="issue_streetlights_title">Streetlights</string>
+    <string name="issue_streetlights_desc">Non-functional lamp posts, dark alleyways, damaged poles</string>
+    <string name="issue_garbage_title">Garbage &amp; Sanitation</string>
+    <string name="issue_garbage_desc">Overflowing bins, uncollected waste, clogged drains</string>
+    <string name="issue_water_title">Water Supply</string>
+    <string name="issue_water_desc">Pipeline leakages, contaminated water, supply disruption</string>
+    <string name="issue_electricity_title">Electricity</string>
+    <string name="issue_electricity_desc">Transformer issues, loose high-tension wires, power cuts</string>
+    <string name="issue_other_title">Other Infrastructure</string>
+    <string name="issue_other_desc">Public parks, stray animals, noise, civic amenities</string>
+
+    <string name="how_it_works_title">How GrievTech Works</string>
+    <string name="step_1_title">1. Report Issue</string>
+    <string name="step_1_desc">Snap a photo with auto GPS geo-location</string>
+    <string name="step_2_title">2. Track Progress</string>
+    <string name="step_2_desc">Follow municipal officer assignment &amp; updates</string>
+    <string name="step_3_title">3. Verified Resolution</string>
+    <string name="step_3_desc">Receive proof of completion and rate service</string>
+
+    <string name="impact_title">Civic Impact</string>
+    <string name="impact_stat_1">1,240+</string>
+    <string name="impact_stat_1_label">Issues Resolved</string>
+    <string name="impact_stat_2">48 Hrs</string>
+    <string name="impact_stat_2_label">Avg. Resolution</string>
+    <string name="impact_stat_3">98.5%</string>
+    <string name="impact_stat_3_label">SLA Compliance</string>
+
+    <string name="sdg_11_title">SDG 11: Sustainable Cities</string>
+    <string name="sdg_16_title">SDG 16: Strong Institutions</string>
+
+    <!-- Auth Screens -->
+    <string name="login_title">Sign In to GrievTech</string>
+    <string name="login_subtitle">Access your civic dashboard</string>
+    <string name="admin_login_title">Administrator Sign In</string>
+    <string name="citizen_login_title">Citizen Sign In</string>
+    <string name="select_portal_role">Select Portal Role</string>
+    <string name="role_citizen_portal">Citizen Portal</string>
+    <string name="role_admin_portal">Admin Portal</string>
+    <string name="sign_in_as_citizen">Sign In as Citizen</string>
+    <string name="sign_in_as_admin">Sign In as Administrator</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="email_label">Email Address</string>
+    <string name="password_label">Password</string>
+    <string name="confirm_password_label">Confirm Password</string>
+    <string name="full_name_label">Full Name</string>
+    <string name="phone_label">Phone Number</string>
+
+    <string name="forgot_password">Forgot password?</string>
+    <string name="forgot_password_title">Reset Password</string>
+    <string name="forgot_password_desc">Enter your registered email address to receive a password reset link.</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="reset_link_sent">Password reset email sent! Check your inbox.</string>
+
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="register_now">Register Now</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="create_account_title">Create Citizen Account</string>
+    <string name="join_citizen_network">Join GrievTech Citizen Network</string>
+    <string name="terms_notice">By registering, you agree to GrievTech Civic Terms of Service and Privacy Policy.</string>
+
+    <!-- Validation & Errors -->
+    <string name="err_invalid_email">Please enter a valid email address.</string>
+    <string name="err_invalid_phone">Please enter a valid 10-14 digit phone number.</string>
+    <string name="err_full_name_short">Please enter your full name (at least 2 characters).</string>
+    <string name="err_password_mismatch">Passwords do not match.</string>
+    <string name="err_password_empty">Password cannot be empty.</string>
+    <string name="err_invalid_tracking_id">Tracking ID must be in format GT-XXXXXX (e.g. GT-123456).</string>
+    <string name="err_admin_access_denied">Access denied. Your account does not have administrator privileges.</string>
+
+    <string name="password_strength_weak">Password Strength: Weak</string>
+    <string name="password_strength_medium">Password Strength: Medium</string>
+    <string name="password_strength_strong">Password Strength: Strong</string>
+
+    <!-- Track Complaint Entry -->
+    <string name="track_entry_title">Track Your Grievance</string>
+    <string name="track_entry_subtitle">Check live progress using your unique 6-digit Tracking ID</string>
+    <string name="tracking_id_label">Tracking ID</string>
+    <string name="tracking_id_hint">GT-123456</string>
+    <string name="track_grievance">Track Grievance</string>
+    <string name="tracking_result_title">Complaint #%1$s Status</string>
+
+    <!-- Phase 4 Submit Grievance -->
+    <string name="submit_grievance_title">Submit Grievance Report</string>
+    <string name="submit_grievance_subtitle">Photo + GPS Geo-tagging</string>
+    <string name="category_label">Select Issue Category</string>
+    <string name="title_label">Title / Summary</string>
+    <string name="title_placeholder">e.g. Dangerous deep pothole near main junction</string>
+    <string name="desc_label">Detailed Description</string>
+    <string name="desc_placeholder">Describe the exact location, risk, and details (min 20 chars)...</string>
+    <string name="speak_desc">Voice Dictation</string>
+    <string name="listening_voice">Listening... Speak your complaint</string>
+    <string name="priority_label">Priority Level</string>
+    <string name="emergency_warning">Emergency priority is reserved for immediate safety hazards like open manholes, live wires, or major road collapse.</string>
+    <string name="evidence_label">Evidence Attachment (Image, Video, or PDF)</string>
+    <string name="take_photo">Camera</string>
+    <string name="pick_gallery">Gallery</string>
+    <string name="attach_pdf">PDF / Document</string>
+    <string name="location_label">Location &amp; GPS Mapping</string>
+    <string name="location_fetching">Fetching GPS location...</string>
+    <string name="location_captured">GPS Location Captured</string>
+    <string name="location_failed">Location capture failed</string>
+    <string name="adjust_pin">Adjust Pin / Location</string>
+    <string name="submit_btn">Submit Grievance</string>
+    <string name="confirm_leave_title">Discard Complaint?</string>
+    <string name="confirm_leave_desc">You have unsaved changes in your complaint draft. Are you sure you want to leave?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+    <string name="submission_success_title">Grievance Report Submitted!</string>
+    <string name="submission_success_desc">Your complaint has been successfully registered on the municipal portal.</string>
+    <string name="your_tracking_id">Your Tracking ID</string>
+    <string name="copy_tracking_id">Copy Tracking ID</string>
+    <string name="share_tracking_id">Share Tracking ID</string>
+    <string name="track_this_complaint">Track This Complaint</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="copied_to_clipboard">Tracking ID copied to clipboard!</string>
+
+    <!-- Enums Labels -->
+    <string name="status_submitted">Submitted</string>
+    <string name="status_assigned">Assigned</string>
+    <string name="status_in_progress">In Progress</string>
+    <string name="status_resolved">Resolved</string>
+    <string name="status_closed">Closed</string>
+
+    <string name="priority_normal">Normal Priority</string>
+    <string name="priority_emergency">Emergency Priority</string>
+
+    <string name="role_citizen">Citizen</string>
+    <string name="role_admin">Administrator</string>
+
+    <!-- Empty State -->
+    <string name="no_complaints_title">No Complaints Found</string>
+    <string name="no_complaints_desc">You haven\'t submitted any civic grievances yet. Report an issue in your area now.</string>
+</resources>

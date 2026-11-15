@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">க்ரீவ்டெக்</string>
+    <string name="app_tagline">பதிவு · பின்தொடர் · தீர்வு</string>
+    <string name="app_subtitle">சிறந்த நகரங்களுக்கான குடிமக்கள் அதிகாரம்</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">நொடிகளில் புகார் அளிக்கவும்</string>
+    <string name="onboarding_desc_1">தானியங்கி ஜிபிஎஸ் இருப்பிடத்துடன் குழிகள், குப்பை அல்லது தெருவிளக்கு பழுதினை புகைப்படம் எடுக்கவும்.</string>
+    <string name="onboarding_title_2">ஒவ்வொரு படியையும் பின்தொடரவும்</string>
+    <string name="onboarding_desc_2">புகார் சமர்ப்பிப்பு முதல் அதிகாரி நியமனம் மற்றும் இறுதி தீர்வு வரை நேரலை புதுப்பிப்புகளைப் பார்க்கவும்.</string>
+    <string name="onboarding_title_3">வெளிப்படையான தீர்வு</string>
+    <string name="onboarding_desc_3">ஐநா எஸ்டிஜி 11 (நிலையான நகரங்கள்) மற்றும் எஸ்டிஜி 16 (வலுவான நிறுவனங்கள்) இலக்குகள்.</string>
+    <string name="skip">தவிர்</string>
+    <string name="next">அடுத்து</string>
+    <string name="get_started">தொடங்கு</string>
+
+    <!-- Language Selector -->
+    <string name="select_language">மொழியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="language_english">English (ஆங்கிலம்)</string>
+    <string name="language_kannada">ಕನ್ನಡ (கன்னடம்)</string>
+    <string name="language_hindi">हिन्दी (இந்தி)</string>
+    <string name="language_tamil">தமிழ் (Tamil)</string>
+    <string name="language_telugu">తెలుగు (தெலுங்கு)</string>
+
+    <!-- Actions & Common -->
+    <string name="login">உள்நுழைக</string>
+    <string name="register">பதிவுசெய்க</string>
+    <string name="sign_out">வெளியேறு</string>
+    <string name="cancel">ரத்துசெய்</string>
+    <string name="submit">சமர்ப்பி</string>
+    <string name="retry">மீண்டும் முயல்க</string>
+    <string name="close">மூடு</string>
+    <string name="back">பின்செல்</string>
+    <string name="loading">ஏற்றப்படுகிறது...</string>
+    <string name="search">தேடு</string>
+    <string name="or">அல்லது</string>
+
+    <!-- Landing Screen -->
+    <string name="landing_hero_title">பொதுக் குறைதீர்ப்பு எளிதானது</string>
+    <string name="landing_hero_subtitle">உங்கள் பகுதியில் உள்ள சிக்கல்களைப் புகாரளித்து தீர்வை நேரலையாகப் பின்தொடருங்கள்.</string>
+    <string name="landing_register_btn">கணக்கு தொடங்கவும்</string>
+    <string name="landing_citizen_login_btn">குடிமகன் உள்நுழைவு</string>
+    <string name="landing_admin_login_btn">நிர்வாகி அணுகல்</string>
+    <string name="landing_login_btn">டாஷ்போர்டில் உள்நுழைக</string>
+    <string name="landing_track_btn">ஐடி மூலம் புகாரைப் பின்தொடரவும்</string>
+
+    <string name="issues_section_title">நாங்கள் தீர்க்கும் சிக்கல்கள்</string>
+    <string name="issues_section_subtitle">புகாரளிக்க ஏதேனும் வகையைத் தட்டவும்</string>
+
+    <string name="issue_potholes_title">சாலைகள் &amp; குழிகள்</string>
+    <string name="issue_potholes_desc">பழுதடைந்த சாலைகள், ஆபத்தான குழிகள், உடைந்த நடைபாதைகள்</string>
+    <string name="issue_streetlights_title">தெருவிளக்குகள்</string>
+    <string name="issue_streetlights_desc">எரியாத தெருவிளக்குகள், இருண்ட வீதிகள்</string>
+    <string name="issue_garbage_title">குப்பை &amp; சுகாதாரம்</string>
+    <string name="issue_garbage_desc">நிரம்பி வழியும் குப்பைத் தொட்டிகள், அடைபட்ட கழிவுநீர்</string>
+    <string name="issue_water_title">குடிநீர் விநியோகம்</string>
+    <string name="issue_water_desc">குழாய் கசிவு, அசுத்தமான நீர், விநியோகத் தடை</string>
+    <string name="issue_electricity_title">மின்சாரம்</string>
+    <string name="issue_electricity_desc">டிரான்ஸ்பார்மர் சிக்கல்கள், மின்வெட்டு</string>
+    <string name="issue_other_title">இதர வசதிகள்</string>
+    <string name="issue_other_desc">பூங்காக்கள், பொது வசதிகள், ஒலி மாசுபாடு</string>
+
+    <string name="how_it_works_title">க்ரீவ்டெக் எவ்வாறு செயல்படுகிறது</string>
+    <string name="step_1_title">1. புகார் அளிக்கவும்</string>
+    <string name="step_1_desc">ஜிபிஎஸ் இருப்பிடத்துடன் புகைப்படம் எடுக்கவும்</string>
+    <string name="step_2_title">2. முன்னேற்றத்தைக் கண்காணிக்கவும்</string>
+    <string name="step_2_desc">அதிகாரிகளின் நடவடிக்கையைப் பின்தொடரவும்</string>
+    <string name="step_3_title">3. உறுதிப்படுத்தப்பட்ட தீர்வு</string>
+    <string name="step_3_desc">பணி நிறைவு சான்றைப் பெறவும்</string>
+
+    <string name="impact_title">சமுதாயத் தாக்கம்</string>
+    <string name="impact_stat_1">1,240+</string>
+    <string name="impact_stat_1_label">தீர்க்கப்பட்ட புகார்கள்</string>
+    <string name="impact_stat_2">48 மணி</string>
+    <string name="impact_stat_2_label">சராசரி நேரம்</string>
+    <string name="impact_stat_3">98.5%</string>
+    <string name="impact_stat_3_label">நேரக் கட்டுப்பாடு</string>
+
+    <string name="sdg_11_title">எஸ்டிஜி 11: நிலையான நகரங்கள்</string>
+    <string name="sdg_16_title">எஸ்டிஜி 16: வலுவான நிறுவனங்கள்</string>
+
+    <!-- Auth Screens -->
+    <string name="login_title">க்ரீவ்டெக்கில் உள்நுழைக</string>
+    <string name="login_subtitle">உங்கள் டாஷ்போர்டை அணுகவும்</string>
+    <string name="admin_login_title">நிர்வாகி உள்நுழைவு</string>
+    <string name="citizen_login_title">குடிமகன் உள்நுழைவு</string>
+    <string name="select_portal_role">தளத்தைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="role_citizen_portal">குடிமக்கள் தளம்</string>
+    <string name="role_admin_portal">நிர்வாகி தளம்</string>
+    <string name="sign_in_as_citizen">குடிமகனாக உள்நுழைக</string>
+    <string name="sign_in_as_admin">நிர்வாகியாக உள்நுழைக</string>
+    <string name="welcome_back">நல்வரவு</string>
+    <string name="email_label">மின்னஞ்சல் முகவரி</string>
+    <string name="password_label">கடவுச்சொல்</string>
+    <string name="confirm_password_label">கடவுச்சொல்லை உறுதிப்படுத்துக</string>
+    <string name="full_name_label">முழுப் பெயர்</string>
+    <string name="phone_label">தொலைபேசி எண்</string>
+
+    <string name="forgot_password">கடவுச்சொல் மறந்துவிட்டதா?</string>
+    <string name="forgot_password_title">கடவுச்சொல்லை மாற்று</string>
+    <string name="forgot_password_desc">மின்னஞ்சல் முகவரியை உள்ளிடவும்.</string>
+    <string name="send_reset_link">இணைப்பை அனுப்பு</string>
+    <string name="reset_link_sent">மின்னஞ்சல் அனுப்பப்பட்டது!</string>
+
+    <string name="dont_have_account">கணக்கு இல்லையா?</string>
+    <string name="register_now">இப்போதே பதிவுசெய்க</string>
+    <string name="already_have_account">ஏற்கனவே கணக்கு உள்ளதா?</string>
+    <string name="create_account_title">குடிமக்கள் கணக்கு தொடங்கவும்</string>
+    <string name="join_citizen_network">க்ரீவ்டெக் அமைப்பில் இணையுங்கள்</string>
+    <string name="terms_notice">பதிவு செய்வதன் மூலம் விதிகளை ஏற்கிறீர்கள்.</string>
+
+    <!-- Validation & Errors -->
+    <string name="err_invalid_email">சரியான மின்னஞ்சலை உள்ளிடவும்.</string>
+    <string name="err_invalid_phone">சரியான 10-14 இலக்க தொலைபேசி எண்ணை உள்ளிடவும்.</string>
+    <string name="err_full_name_short">முழுப் பெயரை உள்ளிடவும் (குறைந்தது 2 எழுத்துக்கள்).</string>
+    <string name="err_password_mismatch">கடவுச்சொற்கள் பொருந்தவில்லை.</string>
+    <string name="err_password_empty">கடவுச்சொல் காலியாக இருக்கக்கூடாது.</string>
+    <string name="err_invalid_tracking_id">ஐடி GT-XXXXXX வடிவில் இருக்க வேண்டும் (எ.கா GT-123456).</string>
+    <string name="err_admin_access_denied">அணுகல் மறுக்கப்பட்டது. உங்கள் கணக்கிற்கு நிர்வாகி அனுமதி இல்லை.</string>
+
+    <string name="password_strength_weak">வலிமை: பலவீனமானது</string>
+    <string name="password_strength_medium">வலிமை: மிதமான</string>
+    <string name="password_strength_strong">வலிமை: பலமானது</string>
+
+    <!-- Track Complaint Entry -->
+    <string name="track_entry_title">புகாரைக் கண்காணிக்கவும்</string>
+    <string name="track_entry_subtitle">6 இலக்க ஐடியைப் பயன்படுத்தி நிலையை அறியவும்</string>
+    <string name="tracking_id_label">கண்காணிப்பு ஐடி</string>
+    <string name="tracking_id_hint">GT-123456</string>
+    <string name="track_grievance">புகாரைப் பின்தொடர்</string>
+    <string name="tracking_result_title">புகார் #%1$s நிலை</string>
+
+    <!-- Phase 4 Submit Grievance -->
+    <string name="submit_grievance_title">புகார் சமர்ப்பிக்கவும்</string>
+    <string name="submit_grievance_subtitle">புகைப்படம் + ஜிபிஎஸ் இருப்பிடம்</string>
+    <string name="category_label">சிக்கலின் வகையைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="title_label">தலைப்பு / சுருக்கம்</string>
+    <string name="title_placeholder">எ.கா. பிரதான சந்திப்பு அருகில் ஆபத்தான குழி</string>
+    <string name="desc_label">விரிவான ವಿವರಣೆ</string>
+    <string name="desc_placeholder">துல்லியமான இடம் மற்றும் விவரங்களை உள்ளிடவும் (குறைந்தது 20 எழுத்துக்கள்)...</string>
+    <string name="speak_desc">குரல் பதிவு</string>
+    <string name="listening_voice">கேட்கிறது... பேசுங்கள்</string>
+    <string name="priority_label">முன்னுரிமை நிலை</string>
+    <string name="emergency_warning">அவசர முன்னுரிமை திறந்த சாக்கடைகள், மின்சார கம்பிகள் போன்ற உடனடி ஆபத்துகளுக்கு மட்டுமே.</string>
+    <string name="evidence_label">சான்று இணைப்பு (புகைப்படம், வீடியோ அல்லது பிடிஎஃப்)</string>
+    <string name="take_photo">கேமரா</string>
+    <string name="pick_gallery">கேலரி</string>
+    <string name="attach_pdf">பிடிஎஃப் ஆவணம்</string>
+    <string name="location_label">இருப்பிடம் &amp; ஜிபிஎஸ் வரைபடம்</string>
+    <string name="location_fetching">இருப்பிடம் பெறப்படுகிறது...</string>
+    <string name="location_captured">ஜிபிஎஸ் இருப்பிடம் பெறப்பட்டது</string>
+    <string name="location_failed">இருப்பிடம் பெறுவதில் தோல்வி</string>
+    <string name="adjust_pin">இருப்பிடத்தை மாற்றவும்</string>
+    <string name="submit_btn">புகார் சமர்ப்பி</string>
+    <string name="confirm_leave_title">புகாரை ரத்து செய்யவா?</string>
+    <string name="confirm_leave_desc">சேமிக்கப்படாத மாற்றங்கள் உள்ளன. வெளியேற விரும்புகிறீர்களா?</string>
+    <string name="discard">ரத்துசெய்</string>
+    <string name="keep_editing">தொடர்ந்து திருத்தவும்</string>
+    <string name="submission_success_title">புகார் வெற்றிகரமாகச் சமர்ப்பிக்கப்பட்டது!</string>
+    <string name="submission_success_desc">உங்கள் புகார் பதிவு செய்யப்பட்டுள்ளது.</string>
+    <string name="your_tracking_id">உங்கள் கண்காணிப்பு ஐடி</string>
+    <string name="copy_tracking_id">ஐடியை நகலெடு</string>
+    <string name="share_tracking_id">ஐடியைப் பகிர்</string>
+    <string name="track_this_complaint">புகாரைப் பின்தொடர்</string>
+    <string name="back_to_home">முகப்புக்குத் திரும்பு</string>
+    <string name="copied_to_clipboard">ஐடி நகலெடுக்கப்பட்டது!</string>
+
+    <!-- Enums Labels -->
+    <string name="status_submitted">சமர்ப்பிக்கப்பட்டது</string>
+    <string name="status_assigned">ஒதுக்கப்பட்டது</string>
+    <string name="status_in_progress">செயல்பாட்டில்</string>
+    <string name="status_resolved">தீர்க்கப்பட்டது</string>
+    <string name="status_closed">முடிக்கப்பட்டது</string>
+
+    <string name="priority_normal">சாதாரண முன்னுரிமை</string>
+    <string name="priority_emergency">அவசர முன்னுரிமை</string>
+
+    <string name="role_citizen">குடிமகன்</string>
+    <string name="role_admin">நிர்வாகி</string>
+
+    <!-- Empty State -->
+    <string name="no_complaints_title">புகார்கள் எதுவும் இல்லை</string>
+    <string name="no_complaints_desc">நீங்கள் இதுவரை எந்தப் புகாரும் அளிக்கவில்லை.</string>
+</resources>

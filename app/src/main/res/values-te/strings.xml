@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">గ్రీవ్‌టెక్</string>
+    <string name="app_tagline">సమర్పణ · ట్రాక్ · పరిష్కారం</string>
+    <string name="app_subtitle">మెరుగైన నగరాల కోసం పౌరుల సాధికారత</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">క్షషణాల్లో ఫిర్యాదు చేయండి</string>
+    <string name="onboarding_desc_1">ఆటోమేటిక్ జీపీఎస్ లొకేషన్‌తో గుంతలు, చెత్త లేదా పగిలిన వీధిదీపాల ఫోటో తీసి ఫిర్యాదు చేయండి.</string>
+    <string name="onboarding_title_2">ప్రతి దశను ట్రాక్ చేయండి</string>
+    <string name="onboarding_desc_2">ఫిర్యాదు సమర్పణ నుండి అధికారుల కేటాయింపు మరియు తుది పరిష్కారం వరకు ప్రత్యక్ష అప్‌డేట్‌లను చూడండి.</string>
+    <string name="onboarding_title_3">పారదర్శక పరిష్కారం</string>
+    <string name="onboarding_desc_3">ఐరాస ఎస్‌డీజీ 11 (సుస్థిర నగరాలు) మరియు ఎస్‌డీజీ 16 (బలమైన వ్యవస్థలు) లక్ష్యాలు.</string>
+    <string name="skip">స్కిప్</string>
+    <string name="next">తరువాత</string>
+    <string name="get_started">ప్రారంభించండి</string>
+
+    <!-- Language Selector -->
+    <string name="select_language">భాషను ఎంచుకోండి</string>
+    <string name="language_english">English (ఇంగ్లీష్)</string>
+    <string name="language_kannada">ಕನ್ನಡ (కన్నడ)</string>
+    <string name="language_hindi">हिन्दी (హిందీ)</string>
+    <string name="language_tamil">தமிழ் (తమిళం)</string>
+    <string name="language_telugu">తెలుగు (Telugu)</string>
+
+    <!-- Actions & Common -->
+    <string name="login">లాగిన్ చేయండి</string>
+    <string name="register">నమోదు చేసుకోండి</string>
+    <string name="sign_out">సైన్ అవుట్</string>
+    <string name="cancel">రద్దు చేయి</string>
+    <string name="submit">సమర్పించు</string>
+    <string name="retry">మళ్లీ ప్రయత్నించు</string>
+    <string name="close">మూసివేయి</string>
+    <string name="back">వెనుకకు</string>
+    <string name="loading">లోడ్ అవుతోంది...</string>
+    <string name="search">వెతకండి</string>
+    <string name="or">లేదా</string>
+
+    <!-- Landing Screen -->
+    <string name="landing_hero_title">ప్రజా సమస్యల పరిష్కారం సులభతరం</string>
+    <string name="landing_hero_subtitle">మీ ప్రాంతంలోని పౌర సమస్యలను నివేదించండి మరియు పరిష్కారాన్ని నేరుగా ట్రాక్ చేయండి.</string>
+    <string name="landing_register_btn">ఖాతాను సృష్టించండి</string>
+    <string name="landing_citizen_login_btn">పౌరుల లాగిన్</string>
+    <string name="landing_admin_login_btn">అధికారుల యాక్సెస్</string>
+    <string name="landing_login_btn">డాష్‌బోర్డ్‌లోకి లాగిన్</string>
+    <string name="landing_track_btn">ఐడీతో ఫిర్యాదును ట్రాక్ చేయండి</string>
+
+    <string name="issues_section_title">మేము పరిష్కరించే సమస్యలు</string>
+    <string name="issues_section_subtitle">ఫిర్యాదు చేయడానికి ఏదైనా వర్గాన్ని ఎంచుకోండి</string>
+
+    <string name="issue_potholes_title">రోడ్లు &amp; గుంతలు</string>
+    <string name="issue_potholes_desc">దెబ్బతిన్న రోడ్లు, ప్రమాదకర గుంతలు, పగిలిన ఫుట్‌పాత్‌లు</string>
+    <string name="issue_streetlights_title">వీధి దీపాలు</string>
+    <string name="issue_streetlights_desc">వెలగని వీధిదీపాలు, చీకటి వీధులు, పగిలిన స్థంభాలు</string>
+    <string name="issue_garbage_title">చెత్త &amp; పారిశుధ్యం</string>
+    <string name="issue_garbage_desc">నిండిపోయిన చెత్త డబ్బాలు, నిలిచిపోయిన మురుగు నీరు</string>
+    <string name="issue_water_title">నీటి సరఫరా</string>
+    <string name="issue_water_desc">పైప్‌లైన్ లీకేజీలు, కలుషిత నీరు, సరఫరా అంతరాయం</string>
+    <string name="issue_electricity_title">విద్యుత్ సరఫరా</string>
+    <string name="issue_electricity_desc">ట్రాన్స్‌ఫార్మర్ సమస్యలు, విద్యుత్ కోతలు</string>
+    <string name="issue_other_title">ఇతర పౌర సేవలు</string>
+    <string name="issue_other_desc">పార్కులు, శబ్ద కాలుష్యం, ఇతర ప్రజా సదుపాయాలు</string>
+
+    <string name="how_it_works_title">గ్రీవ్‌టెక్ ఎలా పనిచేస్తుంది</string>
+    <string name="step_1_title">1. సమస్యను నివేదించండి</string>
+    <string name="step_1_desc">జీపీఎస్ లొకేషన్‌తో ఫోటో తీయండి</string>
+    <string name="step_2_title">2. ప్రగతిని ట్రాక్ చేయండి</string>
+    <string name="step_2_desc">అధికారుల చర్యలను గమనించండి</string>
+    <string name="step_3_title">3. ధృవీకరించబడిన పరిష్కారం</string>
+    <string name="step_3_desc">పని పూర్తయిన రుజువు పొందండి</string>
+
+    <string name="impact_title">పౌర ప్రభావం</string>
+    <string name="impact_stat_1">1,240+</string>
+    <string name="impact_stat_1_label">పరిష్కరించిన సమస్యలు</string>
+    <string name="impact_stat_2">48 గంటలు</string>
+    <string name="impact_stat_2_label">సరాసరి సమయం</string>
+    <string name="impact_stat_3">98.5%</string>
+    <string name="impact_stat_3_label">సమయపాలన</string>
+
+    <string name="sdg_11_title">ఎస్‌డీజీ 11: సుస్థిర నగరాలు</string>
+    <string name="sdg_16_title">ఎస్‌డీజీ 16: బలమైన వ్యవస్థలు</string>
+
+    <!-- Auth Screens -->
+    <string name="login_title">గ్రీవ్‌టెక్‌లోకి లాగిన్ అవ్వండి</string>
+    <string name="login_subtitle">మీ పౌర డాష్‌బోర్డ్‌ను యాక్సెస్ చేయండి</string>
+    <string name="admin_login_title">అధికారుల లాగిన్</string>
+    <string name="citizen_login_title">పౌరుల లాగిన్</string>
+    <string name="select_portal_role">పోర్టల్ ఎంచుకోండి</string>
+    <string name="role_citizen_portal">పౌరుల పోర్టల్</string>
+    <string name="role_admin_portal">అధికారుల పోర్టల్</string>
+    <string name="sign_in_as_citizen">పౌరుడిగా లాగిన్ చేయండి</string>
+    <string name="sign_in_as_admin">అధికారిగా లాగిన్ చేయండి</string>
+    <string name="welcome_back">స్వాగతం</string>
+    <string name="email_label">ఈమెయిల్ చిరునామా</string>
+    <string name="password_label">పాస్‌వర్డ్</string>
+    <string name="confirm_password_label">పాస్‌వర్డ్‌ను నిర్ధారించండి</string>
+    <string name="full_name_label">పూర్తి పేరు</string>
+    <string name="phone_label">ఫోన్ నంబర్</string>
+
+    <string name="forgot_password">పాస్‌వర్డ్ మర్చిపోయారా?</string>
+    <string name="forgot_password_title">పాస్‌వర్డ్ రీసెట్ చేయండి</string>
+    <string name="forgot_password_desc">లింక్ పొందడానికి మీ ఈమెయిల్ ఎంటర్ చేయండి.</string>
+    <string name="send_reset_link">లింక్ పంపండి</string>
+    <string name="reset_link_sent">ఈమెయిల్ పంపబడింది! మీ ఇన్‌బాక్స్ చూడండి.</string>
+
+    <string name="dont_have_account">ఖాతా లేదా?</string>
+    <string name="register_now">ఇప్పుడే నమోదు చేసుకోండి</string>
+    <string name="already_have_account">ఇప్పటికే ఖాతా ఉందా?</string>
+    <string name="create_account_title">పౌర ఖాతాను సృష్టించండి</string>
+    <string name="join_citizen_network">గ్రీవ్‌టెక్ నెట్‌వర్క్‌లో చేరండి</string>
+    <string name="terms_notice">నమోదు చేసుకోవడం ద్వారా మీరు నిబంధనలకు అంగీకరిస్తున్నారు.</string>
+
+    <!-- Validation & Errors -->
+    <string name="err_invalid_email">దయచేసి చెల్లుబాటు అయ్యే ఈమెయిల్ ఎంటర్ చేయండి.</string>
+    <string name="err_invalid_phone">దయచేసి చెల్లుబాటు అయ్యే 10-14 అంకెల ఫోన్ నంబర్ ఎంటర్ చేయండి.</string>
+    <string name="err_full_name_short">దయచేసి మీ పూర్తి పేరు ఎంటర్ చేయండి (కనీసం 2 అక్షరాలు).</string>
+    <string name="err_password_mismatch">పాస్‌వర్డ్‌లు సరిపోలలేదు.</string>
+    <string name="err_password_empty">పాస్‌వర్డ్ ఖాళీగా ఉండకూడదు.</string>
+    <string name="err_invalid_tracking_id">ట్రాకింగ్ ఐడీ GT-XXXXXX రూపంలో ఉండాలి (ఉదా: GT-123456).</string>
+    <string name="err_admin_access_denied">యాక్సెస్ నిరాకరించబడింది. మీ ఖాతాకు అధికారుల అనుమతులు లేవు.</string>
+
+    <string name="password_strength_weak">పాస్‌వర్డ్ బలం: బలహీనం</string>
+    <string name="password_strength_medium">పాస్‌వర్డ్ బలం: మధ్యస్థం</string>
+    <string name="password_strength_strong">పాస్‌వర్డ్ బలం: బలంగా ఉంది</string>
+
+    <!-- Track Complaint Entry -->
+    <string name="track_entry_title">మీ ఫిర్యాదును ట్రాక్ చేయండి</string>
+    <string name="track_entry_subtitle">మీ 6 అంకెల ట్రాకింగ్ ఐడీతో స్థితిని తనిఖీ చేయండి</string>
+    <string name="tracking_id_label">ట్రాకింగ్ ఐడీ</string>
+    <string name="tracking_id_hint">GT-123456</string>
+    <string name="track_grievance">ఫిర్యాదును ట్రాక్ చేయి</string>
+    <string name="tracking_result_title">ఫిర్యాదు #%1$s స్థితి</string>
+
+    <!-- Phase 4 Submit Grievance -->
+    <string name="submit_grievance_title">ఫిర్యాదును సమర్పించండి</string>
+    <string name="submit_grievance_subtitle">ఫోటో + జీపీఎస్ లొకేషన్</string>
+    <string name="category_label">సమస్య వర్గాన్ని ఎంచుకోండి</string>
+    <string name="title_label">శీర్షిక / సారాంశం</string>
+    <string name="title_placeholder">ఉదా: ప్రధాన జంక్షన్ సమీపంలో ప్రమాదకర గుంత</string>
+    <string name="desc_label">వివరమైన వివరణ</string>
+    <string name="desc_placeholder">ఖచ్చితమైన ప్రదేశం మరియు వివరాలు ఎంటర్ చేయండి (కనీసం 20 అక్షరాలు)...</string>
+    <string name="speak_desc">వాయిస్ ఇన్పుట్</string>
+    <string name="listening_voice">వింటున్నారు... మాట్లాడండి</string>
+    <string name="priority_label">ప్రాధాన్యత స్థాయి</string>
+    <string name="emergency_warning">అత్యవసర ప్రాధాన్యత వెంటనే ప్రమాదం ఉన్న పరిస్థితులకు మాత్రమే.</string>
+    <string name="evidence_label">ఆధారాలు జతచేయండి (ఫోటో, వీడియో లేదా పిడిఎఫ్)</string>
+    <string name="take_photo">కెమెరా</string>
+    <string name="pick_gallery">గ్యాలరీ</string>
+    <string name="attach_pdf">పిడిఎఫ్ డాక్యుమెంట్</string>
+    <string name="location_label">ప్రదేశం &amp; జీపీఎస్ మ్యాప్</string>
+    <string name="location_fetching">జీపీఎస్ స్థానం పొందుతోంది...</string>
+    <string name="location_captured">జీపీఎస్ స్థానం పొందబడింది</string>
+    <string name="location_failed">జీపీఎస్ స్థానం పొందడంలో విఫలమైంది</string>
+    <string name="adjust_pin">ప్రదేశాన్ని సర్దుబాటు చేయండి</string>
+    <string name="submit_btn">ఫిర్యాదును సమర్పించు</string>
+    <string name="confirm_leave_title">ఫిర్యాదును రద్దు చేయాలా?</string>
+    <string name="confirm_leave_desc">మీ వద్ద సేవ్ చేయని మార్పులు ఉన్నాయి. మీరు బయటకు వెళ్లాలనుకుంటున్నారా?</string>
+    <string name="discard">రద్దు చేయి</string>
+    <string name="keep_editing">సవరణను కొనసాగించండి</string>
+    <string name="submission_success_title">ఫిర్యాదు విజయవంతంగా సమర్పించబడింది!</string>
+    <string name="submission_success_desc">మీ ఫిర్యాదు మున్సిపల్ పోర్టల్‌లో నమోదైంది.</string>
+    <string name="your_tracking_id">మీ ట్రాకింగ్ ఐడీ</string>
+    <string name="copy_tracking_id">ఐడీని కాపీ చేయి</string>
+    <string name="share_tracking_id">ఐడీని షేర్ చేయి</string>
+    <string name="track_this_complaint">ఈ ఫిర్యాదును ట్రాక్ చేయి</string>
+    <string name="back_to_home">హోమ్‌కి తిరిగి వెళ్లు</string>
+    <string name="copied_to_clipboard">ట్రాకింగ్ ఐడీ కాపీ చేయబడింది!</string>
+
+    <!-- Enums Labels -->
+    <string name="status_submitted">సమర్పించబడింది</string>
+    <string name="status_assigned">కేటాయించబడింది</string>
+    <string name="status_in_progress">పురోగతిలో ఉంది</string>
+    <string name="status_resolved">పరిష్కరించబడింది</string>
+    <string name="status_closed">ముగించబడింది</string>
+
+    <string name="priority_normal">సాధారణ ప్రాధాన్యత</string>
+    <string name="priority_emergency">అత్యవసర ప్రాధాన్యత</string>
+
+    <string name="role_citizen">పౌరుడు</string>
+    <string name="role_admin">అధికారి</string>
+
+    <!-- Empty State -->
+    <string name="no_complaints_title">ఫిర్యాదులు ఏవీ లేవు</string>
+    <string name="no_complaints_desc">మీరు ఇంకా ఎటువంటి ఫిర్యాదు సమర్పించలేదు.</string>
+</resources>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ग्रीवटैक</string>
+    <string name="app_tagline">दर्ज करें · ट्रैक करें · समाधान पाएं</string>
+    <string name="app_subtitle">बेहतर शहरों के लिए सशक्त नागरिक</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">सेकंडों में शिकायत दर्ज करें</string>
+    <string name="onboarding_desc_1">स्वचालित जीपीएस लोकेशन के साथ गड्ढों, कचरे या खराब स्ट्रीटलाइट की फोटो खींचें।</string>
+    <string name="onboarding_title_2">हर कदम पर ट्रैक करें</string>
+    <string name="onboarding_desc_2">शिकायत दर्ज करने से लेकर अधिकारी आवंटन और अंतिम समाधान तक लाइव अपडेट देखें।</string>
+    <string name="onboarding_title_3">पारदर्शी समाधान</string>
+    <string name="onboarding_desc_3">संयुक्त राष्ट्र एसडीजी 11 (सतत शहर) और एसडीजी 16 (मजबूत संस्थान) के तहत जवाबदेही।</string>
+    <string name="skip">छोड़ें</string>
+    <string name="next">आगे</string>
+    <string name="get_started">शुरू करें</string>
+
+    <!-- Language Selector -->
+    <string name="select_language">भाषा चुनें</string>
+    <string name="language_english">English (अंग्रेज़ी)</string>
+    <string name="language_kannada">ಕನ್ನಡ (कन्नड़)</string>
+    <string name="language_hindi">हिन्दी (Hindi)</string>
+    <string name="language_tamil">தமிழ் (तमिल)</string>
+    <string name="language_telugu">తెలుగు (తేలుగు)</string>
+
+    <!-- Actions & Common -->
+    <string name="login">साइन इन करें</string>
+    <string name="register">पंजीकरण करें</string>
+    <string name="sign_out">साइन आउट</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="submit">जमा करें</string>
+    <string name="retry">पुनः प्रयास करें</string>
+    <string name="close">बंद करें</string>
+    <string name="back">पीछे</string>
+    <string name="loading">लोड हो रहा है...</string>
+    <string name="search">खोजें</string>
+    <string name="or">या</string>
+
+    <!-- Landing Screen -->
+    <string name="landing_hero_title">जन शिकायत निवारण हुआ आसान</string>
+    <string name="landing_hero_subtitle">अपने पड़ोस की नागरिक समस्याओं की रिपोर्ट करें और लाइव स्थिति ट्रैक करें।</string>
+    <string name="landing_register_btn">नया खाता बनाएं</string>
+    <string name="landing_citizen_login_btn">नागरिक साइन इन</string>
+    <string name="landing_admin_login_btn">प्रशासक लॉगिन</string>
+    <string name="landing_login_btn">डैशबोर्ड में साइन इन करें</string>
+    <string name="landing_track_btn">आईडी से शिकायत ट्रैक करें</string>
+
+    <string name="issues_section_title">समस्याएं जिनका हम समाधान करते हैं</string>
+    <string name="issues_section_subtitle">शिकायत दर्ज करने के लिए किसी श्रेणी पर टैप करें</string>
+
+    <string name="issue_potholes_title">सड़कें और गड्ढे</string>
+    <string name="issue_potholes_desc">टूटी सड़कें, खतरनाक गड्ढे, टूटे फुटपाथ</string>
+    <string name="issue_streetlights_title">स्ट्रीटलाइट</string>
+    <string name="issue_streetlights_desc">खराब लाइटें, अंधेरी गलियां, क्षतिग्रस्त खंभे</string>
+    <string name="issue_garbage_title">कचरा और स्वच्छता</string>
+    <string name="issue_garbage_desc">उबलते कचरा पात्र, खुला कचरा, बंद नालियां</string>
+    <string name="issue_water_title">जल आपूर्ति</string>
+    <string name="issue_water_desc">पाइपलाइन रिसाव, दूषित पानी, पानी की रुकावट</string>
+    <string name="issue_electricity_title">बिजली</string>
+    <string name="issue_electricity_desc">ट्रांसफार्मर की समस्याएं, बिजली कटौती</string>
+    <string name="issue_other_title">अन्य नागरिक सुविधाएं</string>
+    <string name="issue_other_desc">पार्क, सार्वजनिक आवारा पशु, ध्वनि प्रदूषण</string>
+
+    <string name="how_it_works_title">ग्रीवटैक कैसे काम करता है</string>
+    <string name="step_1_title">1. शिकायत दर्ज करें</string>
+    <string name="step_1_desc">जीपीएस लोकेशन के साथ फोटो खींचें</string>
+    <string name="step_2_title">2. प्रगति ट्रैक करें</string>
+    <string name="step_2_desc">अधिकारियों के काम का अपडेट देखें</string>
+    <string name="step_3_title">3. प्रमाणित समाधान</string>
+    <string name="step_3_desc">काम पूरा होने का प्रमाण प्राप्त करें</string>
+
+    <string name="impact_title">नागरिक प्रभाव</string>
+    <string name="impact_stat_1">1,240+</string>
+    <string name="impact_stat_1_label">हल की गई समस्याएं</string>
+    <string name="impact_stat_2">48 घंटे</string>
+    <string name="impact_stat_2_label">औसत समय</string>
+    <string name="impact_stat_3">98.5%</string>
+    <string name="impact_stat_3_label">समय सीमा पालन</string>
+
+    <string name="sdg_11_title">एसडीजी 11: सतत शहर</string>
+    <string name="sdg_16_title">एसडीजी 16: मजबूत संस्थान</string>
+
+    <!-- Auth Screens -->
+    <string name="login_title">ग्रीवटैक में साइन इन करें</string>
+    <string name="login_subtitle">अपने नागरिक डैशबोर्ड तक पहुंचें</string>
+    <string name="admin_login_title">प्रशासक साइन इन</string>
+    <string name="citizen_login_title">नागरिक साइन इन</string>
+    <string name="select_portal_role">पोर्टल चुनें</string>
+    <string name="role_citizen_portal">नागरिक पोर्टल</string>
+    <string name="role_admin_portal">प्रशासक पोर्टल</string>
+    <string name="sign_in_as_citizen">नागरिक के रूप में साइन इन करें</string>
+    <string name="sign_in_as_admin">प्रशासक के रूप में साइन इन करें</string>
+    <string name="welcome_back">स्वागत है</string>
+    <string name="email_label">ईमेल पता</string>
+    <string name="password_label">पासवर्ड</string>
+    <string name="confirm_password_label">पासवर्ड की पुष्टि करें</string>
+    <string name="full_name_label">पूरा नाम</string>
+    <string name="phone_label">मोबाइल नंबर</string>
+
+    <string name="forgot_password">पासवर्ड भूल गए?</string>
+    <string name="forgot_password_title">पासवर्ड रीसेट करें</string>
+    <string name="forgot_password_desc">रीसेट लिंक प्राप्त करने के लिए अपना ईमेल दर्ज करें।</string>
+    <string name="send_reset_link">रीसेट लिंक भेजें</string>
+    <string name="reset_link_sent">ईमेल भेज दिया गया है! अपना इनबॉक्स जांचें।</string>
+
+    <string name="dont_have_account">खाता नहीं है?</string>
+    <string name="register_now">अभी पंजीकरण करें</string>
+    <string name="already_have_account">पहले से खाता है?</string>
+    <string name="create_account_title">नागरिक खाता बनाएं</string>
+    <string name="join_citizen_network">ग्रीवटैक नेटवर्क से जुड़ें</string>
+    <string name="terms_notice">पंजीकरण करके आप सेवा शर्तों से सहमत होते हैं।</string>
+
+    <!-- Validation & Errors -->
+    <string name="err_invalid_email">कृपया सही ईमेल पता दर्ज करें।</string>
+    <string name="err_invalid_phone">कृपया सही 10-14 अंकों का मोबाइल नंबर दर्ज करें।</string>
+    <string name="err_full_name_short">कृपया अपना पूरा नाम दर्ज करें (कम से कम 2 अक्षर)।</string>
+    <string name="err_password_mismatch">पासवर्ड मेल नहीं खाते।</string>
+    <string name="err_password_empty">पासवर्ड खाली नहीं हो सकता।</string>
+    <string name="err_invalid_tracking_id">ट्रैकिंग आईडी GT-XXXXXX प्रारूप में होनी चाहिए (जैसे GT-123456)।</string>
+    <string name="err_admin_access_denied">पहुंच से इनकार किया गया। आपके पास प्रशासक अधिकार नहीं हैं।</string>
+
+    <string name="password_strength_weak">पासवर्ड ताकत: कमजोर</string>
+    <string name="password_strength_medium">पासवर्ड ताकत: मध्यम</string>
+    <string name="password_strength_strong">पासवर्ड ताकत: मजबूत</string>
+
+    <!-- Track Complaint Entry -->
+    <string name="track_entry_title">अपनी शिकायत ट्रैक करें</string>
+    <string name="track_entry_subtitle">अपनी 6 अंकों की ट्रैकिंग आईडी से स्थिति जांचें</string>
+    <string name="tracking_id_label">ट्रैकिंग आईडी</string>
+    <string name="tracking_id_hint">GT-123456</string>
+    <string name="track_grievance">शिकायत ट्रैक करें</string>
+    <string name="tracking_result_title">शिकायत #%1$s स्थिति</string>
+
+    <!-- Phase 4 Submit Grievance -->
+    <string name="submit_grievance_title">शिकायत दर्ज करें</string>
+    <string name="submit_grievance_subtitle">फोटो + जीपीएस लोकेशन</string>
+    <string name="category_label">समस्या श्रेणी चुनें</string>
+    <string name="title_label">शीर्षक / सारांश</string>
+    <string name="title_placeholder">उदा: मुख्य चौराहे के पास खतरनाक गड्ढा</string>
+    <string name="desc_label">विस्तृत विवरण</string>
+    <string name="desc_placeholder">सटीक स्थान, जोखिम और विवरण दर्ज करें (कम से कम 20 अक्षर)...</string>
+    <string name="speak_desc">वॉइस इनपुट</string>
+    <string name="listening_voice">सुन रहे हैं... अपनी शिकायत बोलें</string>
+    <string name="priority_label">प्राथमिकता स्तर</string>
+    <string name="emergency_warning">आपातकालीन प्राथमिकता केवल खुले मैनहोल या खुले बिजली के तारों जैसे तुरंत खतरे के लिए है।</string>
+    <string name="evidence_label">प्रमाण संलग्न करें (फोटो, वीडियो या पीडीएफ)</string>
+    <string name="take_photo">कैमरा</string>
+    <string name="pick_gallery">गैलरी</string>
+    <string name="attach_pdf">पीडीएफ दस्तावेज</string>
+    <string name="location_label">स्थान और जीपीएस मानचित्र</string>
+    <string name="location_fetching">जीपीएस स्थान प्राप्त किया जा रहा है...</string>
+    <string name="location_captured">जीपीएस स्थान प्राप्त हुआ</string>
+    <string name="location_failed">जीपीएस स्थान प्राप्त करने में विफल</string>
+    <string name="adjust_pin">स्थान समायोजित करें</string>
+    <string name="submit_btn">शिकायत जमा करें</string>
+    <string name="confirm_leave_title">शिकायत रद्द करें?</string>
+    <string name="confirm_leave_desc">आपके पास असहेजे गए बदलाव हैं। क्या आप बाहर जाना चाहते हैं?</string>
+    <string name="discard">रद्द करें</string>
+    <string name="keep_editing">संपादन जारी रखें</string>
+    <string name="submission_success_title">शिकायत सफलतापूर्वक दर्ज की गई!</string>
+    <string name="submission_success_desc">आपकी शिकायत नगर निगम पोर्टल पर दर्ज कर ली गई है।</string>
+    <string name="your_tracking_id">आपकी ट्रैकिंग आईडी</string>
+    <string name="copy_tracking_id">आईडी कॉपी करें</string>
+    <string name="share_tracking_id">आईडी साझा करें</string>
+    <string name="track_this_complaint">शिकायत ट्रैक करें</string>
+    <string name="back_to_home">मुख्य पृष्ठ पर लौटें</string>
+    <string name="copied_to_clipboard">ट्रैकिंग आईडी क्लिपबोर्ड पर कॉपी हो गई!</string>
+
+    <!-- Enums Labels -->
+    <string name="status_submitted">दर्ज की गई</string>
+    <string name="status_assigned">आवंटित</string>
+    <string name="status_in_progress">प्रगति पर</string>
+    <string name="status_resolved">हल की गई</string>
+    <string name="status_closed">बंद की गई</string>
+
+    <string name="priority_normal">सामान्य प्राथमिकता</string>
+    <string name="priority_emergency">आपत्कालीन प्राथमिकता</string>
+
+    <string name="role_citizen">नागरिक</string>
+    <string name="role_admin">प्रशासक</string>
+
+    <!-- Empty State -->
+    <string name="no_complaints_title">कोई शिकायत नहीं मिली</string>
+    <string name="no_complaints_desc">आपने अभी तक कोई शिकायत दर्ज नहीं की है।</string>
+</resources>

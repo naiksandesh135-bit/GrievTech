@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ಗ್ರೀವ್‌ಟೆಕ್</string>
+    <string name="app_tagline">ಸಲ್ಲಿಕೆ · ಟ್ರ್ಯಾಕ್ · ಪರಿಹಾರ</string>
+    <string name="app_subtitle">ಉತ್ತಮ ನಗರಗಳಿಗಾಗಿ ನಾಗರಿಕರ ಸಬಲೀಕರಣ</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">ಕ್ಷಣಾರ್ಧದಲ್ಲಿ ದೂರು ನೀಡಿ</string>
+    <string name="onboarding_desc_1">ಆಟೋಮ್ಯಾಟಿಕ್ ಜಿಪಿಎಸ್ ಲೋಕೇಶನ್‌ನೊಂದಿಗೆ ರಸ್ತೆ ಗುಂಡಿ, ಕಸ ಅಥವಾ ರಸ್ತೆ ದೀಪದ ಫೋಟೋ ತೆಗೆದು ದೂರು ಸಲ್ಲಿಸಿ.</string>
+    <string name="onboarding_title_2">ಪ್ರತಿ ಹಂತವನ್ನೂ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ</string>
+    <string name="onboarding_desc_2">ದೂರು ಸಲ್ಲಿಕೆಯಿಂದ ಅಧಿಕಾರಿಗಳ ನಿಯೋಜನೆ ಮತ್ತು ಅಂತಿಮ ಪರಿಹಾರದವರೆಗೆ ರಿಯಲ್-ಟೈಮ್ ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ.</string>
+    <string name="onboarding_title_3">ಪಾರದರ್ಶಕ ಪರಿಹಾರ</string>
+    <string name="onboarding_desc_3">ವಿಶ್ವಸಂಸ್ಥೆಯ ಎಸ್‌ಡಿಜಿ 11 (ಸುಸ್ಥಿರ ನಗರಗಳು) ಮತ್ತು ಎಸ್‌ಡಿಜಿ 16 (ಸದೃಢ ಸಂಸ್ಥೆಗಳು) ಗುರಿ ಸಾಧನೆ.</string>
+    <string name="skip">ಸ್ಕಿಪ್</string>
+    <string name="next">ಮುಂದೆ</string>
+    <string name="get_started">ಪ್ರಾರಂಭಿಸಿ</string>
+
+    <!-- Language Selector -->
+    <string name="select_language">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡಿ</string>
+    <string name="language_english">English (ಇಂಗ್ಲಿಷ್)</string>
+    <string name="language_kannada">ಕನ್ನಡ (Kannada)</string>
+    <string name="language_hindi">हिन्दी (ಹಿಂದಿ)</string>
+    <string name="language_tamil">தமிழ் (ತಮಿಳು)</string>
+    <string name="language_telugu">తెలుగు (ತೆಲುಗು)</string>
+
+    <!-- Actions & Common -->
+    <string name="login">ಲಾಗಿನ್ ಮಾಡಿ</string>
+    <string name="register">ನೋಂದಾಯಿಸಿ</string>
+    <string name="sign_out">ಸೈನ್ ಔಟ್</string>
+    <string name="cancel">ರದ್ದುಗೊಳಿಸಿ</string>
+    <string name="submit">ಸಲ್ಲಿಸಿ</string>
+    <string name="retry">ಮತ್ತೆ ಯತ್ನಿಸಿ</string>
+    <string name="close">ಮುಚ್ಚಿ</string>
+    <string name="back">ಹಿಂತಿರುಗಿ</string>
+    <string name="loading">ಲೋಡ್ ಆಗುತ್ತಿದೆ...</string>
+    <string name="search">ಹುಡುಕಿ</string>
+    <string name="or">ಅಥವಾ</string>
+
+    <!-- Landing Screen -->
+    <string name="landing_hero_title">ಸಾರ್ವಜನಿಕ ಕುಂದುಕೊರತೆ ಪರಿಹಾರ ಸರಳವಾಯಿತು</string>
+    <string name="landing_hero_subtitle">ನಿಮ್ಮ ಬಡಾವಣೆಯ ಪೌರ ಸಮಸ್ಯೆಗಳನ್ನು ವರದಿ ಮಾಡಿ ಮತ್ತು ಪರಿಹಾರವನ್ನು ನೇರವಾಗಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.</string>
+    <string name="landing_register_btn">ಖಾತೆ ತೆರೆಯಿರಿ</string>
+    <string name="landing_citizen_login_btn">ನಾಗರಿಕ ಲಾಗಿನ್</string>
+    <string name="landing_admin_login_btn">ಅಧಿಕಾರಿ ಲಾಗಿನ್</string>
+    <string name="landing_login_btn">ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಲಾಗಿನ್</string>
+    <string name="landing_track_btn">ದೂರು ಐಡಿ ಮೂಲಕ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ</string>
+
+    <string name="issues_section_title">ನಾವು ಪರಿಹರಿಸುವ ಸಮಸ್ಯೆಗಳು</string>
+    <string name="issues_section_subtitle">ನಿಮ್ಮ ಪ್ರದೇಶದ ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಲು ವರ್ಗವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ</string>
+
+    <string name="issue_potholes_title">ರಸ್ತೆ ಮತ್ತು ಗುಂಡಿಗಳು</string>
+    <string name="issue_potholes_desc">ಹಾಳಾದ ರಸ್ತೆಗಳು, ಅಪಾಯಕಾರಿ ಗುಂಡಿಗಳು, ಒಡೆದ ಕಾಲುದಾರಿಗಳು</string>
+    <string name="issue_streetlights_title">ವೀದಿ ದೀಪಗಳು</string>
+    <string name="issue_streetlights_desc">ಕೆಲಸ ಮಾಡದ ಸ್ಟ್ರೀಟ್‌ಲೈಟ್‌ಗಳು, ಕತ್ತಲೆಯ ದಾರಿಗಳು</string>
+    <string name="issue_garbage_title">ಕಸ ಮತ್ತು ನೈರ್ಮಲ್ಯ</string>
+    <string name="issue_garbage_desc">ತುಂಬಿ ಹರಿಯುವ ಕಸದ ತೊಟ್ಟಿಗಳು, ಚರಂಡಿ ತಡೆ</string>
+    <string name="issue_water_title">ನೀರು ಪೂರೈಕೆ</string>
+    <string name="issue_water_desc">ಪೈಪ್‌ಲೈನ್ ಸೋರಿಕೆ, ಕಲುಷಿತ ನೀರು, ಪೂರೈಕೆ ವ್ಯತ್ಯಯ</string>
+    <string name="issue_electricity_title">ವಿದ್ಯುತ್ ಸರಬರಾಜು</string>
+    <string name="issue_electricity_desc">ಟ್ರಾನ್ಸ್‌ಫಾರ್ಮರ್ ಸಮಸ್ಯೆಗಳು, ವಿದ್ಯುತ್ ಕಡಿತ</string>
+    <string name="issue_other_title">ಇತರ ಪೌರ ಸಮಸ್ಯೆಗಳು</string>
+    <string name="issue_other_desc">ಸಾರ್ವಜನಿಕ ಉದ್ಯಾನವನಗಳು, ಶಬ್ದ ಮಾಲಿನ್ಯ, ಇತರ ಸೌಲಭ್ಯಗಳು</string>
+
+    <string name="how_it_works_title">ಗ್ರೀವ್‌ಟೆಕ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ</string>
+    <string name="step_1_title">1. ಸಮಸ್ಯೆ ವರದಿ ಮಾಡಿ</string>
+    <string name="step_1_desc">ಜಿಪಿಎಸ್ ಲೊಕೇಶನ್‌ನೊಂದಿಗೆ ಫೋಟೋ ತೆಗೆಯಿರಿ</string>
+    <string name="step_2_title">2. ಪ್ರಗತಿ ವೀಕ್ಷಿಸಿ</string>
+    <string name="step_2_desc">ಅಧಿಕಾರಿಗಳ ಕೆಲಸದ ಹಂತಗಳನ್ನು ಗಮನಿಸಿ</string>
+    <string name="step_3_title">3. ದೃಢೀಕೃತ ಪರಿಹಾರ</string>
+    <string name="step_3_desc">ಕಾಮಗಾರಿ ಪೂರ್ಣಗೊಂಡ ಪುರಾವೆ ಪಡೆಯಿರಿ</string>
+
+    <string name="impact_title">ನಾಗರಿಕ ಪರಿಣಾಮ</string>
+    <string name="impact_stat_1">1,240+</string>
+    <string name="impact_stat_1_label">ಪರಿಹರಿಸಿದ ಸಮಸ್ಯೆಗಳು</string>
+    <string name="impact_stat_2">48 ಗಂಟೆ</string>
+    <string name="impact_stat_2_label">ಸರಾಸರಿ ಸಮಯ</string>
+    <string name="impact_stat_3">98.5%</string>
+    <string name="impact_stat_3_label">ಸಮಯಪಾಲನೆ</string>
+
+    <string name="sdg_11_title">ಎಸ್‌ಡಿಜಿ 11: ಸುಸ್ಥಿರ ನಗರಗಳು</string>
+    <string name="sdg_16_title">ಎಸ್‌ಡಿಜಿ 16: ಸದೃಢ ಸಂಸ್ಥೆಗಳು</string>
+
+    <!-- Auth Screens -->
+    <string name="login_title">ಗ್ರೀವ್‌ಟೆಕ್‌ಗೆ ಲಾಗಿನ್ ಮಾಡಿ</string>
+    <string name="login_subtitle">ನಿಮ್ಮ ನಾಗರಿಕ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಪ್ರವೇಶಿಸಿ</string>
+    <string name="admin_login_title">ಅಧಿಕಾರಿ ಲಾಗಿನ್</string>
+    <string name="citizen_login_title">ನಾಗರಿಕ ಲಾಗಿನ್</string>
+    <string name="select_portal_role">ಪೋರ್ಟಲ್ ಆಯ್ಕೆ ಮಾಡಿ</string>
+    <string name="role_citizen_portal">ನಾಗರಿಕ ಪೋರ್ಟಲ್</string>
+    <string name="role_admin_portal">ಅಧಿಕಾರಿ ಪೋರ್ಟಲ್</string>
+    <string name="sign_in_as_citizen">ನಾಗರಿಕರಾಗಿ ಲಾಗಿನ್ ಮಾಡಿ</string>
+    <string name="sign_in_as_admin">ಅಧಿಕಾರಿಯಾಗಿ ಲಾಗಿನ್ ಮಾಡಿ</string>
+    <string name="welcome_back">ಸ್ವಾಗತ</string>
+    <string name="email_label">ಇಮೇಲ್ ವಿಳಾಸ</string>
+    <string name="password_label">ಪಾಸ್‌ವರ್ಡ್</string>
+    <string name="confirm_password_label">ಪಾಸ್‌ವರ್ಡ್ ದೃಢೀಕರಿಸಿ</string>
+    <string name="full_name_label">ಪೂರ್ಣ ಹೆಸರು</string>
+    <string name="phone_label">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</string>
+
+    <string name="forgot_password">ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿದ್ದೀರಾ?</string>
+    <string name="forgot_password_title">ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಿ</string>
+    <string name="forgot_password_desc">ಲಿಂಕ್ ಪಡೆಯಲು ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ.</string>
+    <string name="send_reset_link">ಲಿಂಕ್ ಕಳುಹಿಸಿ</string>
+    <string name="reset_link_sent">ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆ! ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.</string>
+
+    <string name="dont_have_account">ಖಾತೆ ಇಲ್ಲವೇ?</string>
+    <string name="register_now">ಈಗಲೇ ನೋಂದಾಯಿಸಿ</string>
+    <string name="already_have_account">ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ?</string>
+    <string name="create_account_title">ನಾಗರಿಕ ಖಾತೆ ತೆರೆಯಿರಿ</string>
+    <string name="join_citizen_network">ಗ್ರೀವ್‌ಟೆಕ್ ನಾಗರಿಕ ಜಾಲಕ್ಕೆ ಸೇರಿ</string>
+    <string name="terms_notice">ನೋಂದಾಯಿಸುವ ಮೂಲಕ ನೀವು ಸೇವಾ ನಿಯಮಗಳಿಗೆ ಒಪ್ಪುತ್ತೀರಿ.</string>
+
+    <!-- Validation & Errors -->
+    <string name="err_invalid_email">ಸರಿಯಾದ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ.</string>
+    <string name="err_invalid_phone">ಸರಿಯಾದ 10-14 ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ.</string>
+    <string name="err_full_name_short">ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು ನಮೂದಿಸಿ (ಕನಿಷ್ಠ 2 ಅಕ್ಷರ).</string>
+    <string name="err_password_mismatch">ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ.</string>
+    <string name="err_password_empty">ಪಾಸ್‌ವರ್ಡ್ ಖಾಲಿ ಇರುವಂತಿಲ್ಲ.</string>
+    <string name="err_invalid_tracking_id">ಟ್ರ್ಯಾಕಿಂಗ್ ಐಡಿ GT-XXXXXX ರೂಪದಲ್ಲಿರಬೇಕು (ಉದಾ: GT-123456).</string>
+    <string name="err_admin_access_denied">ಪ್ರವೇಶ ನಿರಾಕರಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಖಾತೆಗೆ ಅಧಿಕಾರಿ ಹಕ್ಕುಗಳಿಲ್ಲ.</string>
+
+    <string name="password_strength_weak">ಪಾಸ್‌ವರ್ಡ್ ಸಾಮರ್ಥ್ಯ: ಕನಿಷ್ಠ</string>
+    <string name="password_strength_medium">ಪಾಸ್‌ವರ್ಡ್ ಸಾಮರ್ಥ್ಯ: ಮಧ್ಯಮ</string>
+    <string name="password_strength_strong">ಪಾಸ್‌ವರ್ಡ್ ಸಾಮರ್ಥ್ಯ: ಉತ್ತಮ</string>
+
+    <!-- Track Complaint Entry -->
+    <string name="track_entry_title">ನಿಮ್ಮ ದೂರು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ</string>
+    <string name="track_entry_subtitle">ನಿಮ್ಮ 6-ಅಂಕಿಯ ಟ್ರ್ಯಾಕಿಂಗ್ ಐಡಿ ಬಳಸಿ ಸ್ಥಿತಿ ತಿಳಿಯಿರಿ</string>
+    <string name="tracking_id_label">ಟ್ರ್ಯಾಕಿಂಗ್ ಐಡಿ</string>
+    <string name="tracking_id_hint">GT-123456</string>
+    <string name="track_grievance">ದೂರು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ</string>
+    <string name="tracking_result_title">ದೂರು #%1$s ಸ್ಥಿತಿ</string>
+
+    <!-- Phase 4 Submit Grievance -->
+    <string name="submit_grievance_title">ದೂರು ಸಲ್ಲಿಸಿ</string>
+    <string name="submit_grievance_subtitle">ಫೋಟೋ + ಜಿಪಿಎಸ್ ಲೋಕೇಶನ್</string>
+    <string name="category_label">ಸಮಸ್ಯೆಯ ವರ್ಗ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="title_label">ಶೀರ್ಷಿಕೆ / ಮುಖ್ಯಾಂಶ</string>
+    <string name="title_placeholder">ಉದಾ: ಪ್ರಮುಖ ಜಂಕ್ಷನ್ ಬಳಿ ಅಪಾಯಕಾರಿ ಗುಂಡಿ</string>
+    <string name="desc_label">ವಿವರವಾದ ವಿವರಣೆ</string>
+    <string name="desc_placeholder">ಸ್ಥಳ ಮತ್ತು ಸಮಸ್ಯೆಯ ವಿವರ ಬರೆಯಿರಿ (ಕನಿಷ್ಠ 20 ಅಕ್ಷರ)...</string>
+    <string name="speak_desc">ಧ್ವನಿ ಸಲ್ಲಿಕೆ</string>
+    <string name="listening_voice">ಆಲಿಸಲಾಗುತ್ತಿದೆ... ದೂರು ಮಾತನಾಡಿ</string>
+    <string name="priority_label">ಆದ್ಯತೆಯ ಹಂತ</string>
+    <string name="emergency_warning">ತೆರೆದ ಮ್ಯಾನ್‌ಹೋಲ್, ಲೈವ್ ವಿದ್ಯುತ್ ತಂತಿ ಮುಂತಾದ ಜೀವದ ಅಪಾಯದ ತುರ್ತು ಸಂದರ್ಭಗಳಿಗೆ ಮಾತ್ರ ಇದನ್ನು ಬಳಸಿ.</string>
+    <string name="evidence_label">ಸಾಕ್ಷ್ಯ ಲಗತ್ತು (ಫೋಟೋ, ವೀಡಿಯೋ ಅಥವಾ ಪಿಡಿಎಫ್)</string>
+    <string name="take_photo">ಕ್ಯಾಮೆರಾ</string>
+    <string name="pick_gallery">ಗ್ಯಾಲರಿ</string>
+    <string name="attach_pdf">ಪಿಡಿಎಫ್ ದಾಖಲೆ</string>
+    <string name="location_label">ಸ್ಥಳ ಮತ್ತು ಜಿಪಿಎಸ್ ನಕ್ಷೆ</string>
+    <string name="location_fetching">ಜಿಪಿಎಸ್ ಪಡೆಯಲಾಗುತ್ತಿದೆ...</string>
+    <string name="location_captured">ಜಿಪಿಎಸ್ ಪಡೆಯಲಾಗಿದೆ</string>
+    <string name="location_failed">ಜಿಪಿಎಸ್ ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ</string>
+    <string name="adjust_pin">ಸ್ಥಳ ಬದಲಾಯಿಸಿ</string>
+    <string name="submit_btn">ದೂರು ಸಲ್ಲಿಸಿ</string>
+    <string name="confirm_leave_title">ದೂರು ರದ್ದುಗೊಳಿಸಬೇಕೆ?</string>
+    <string name="confirm_leave_desc">ನಿಮ್ಮಲ್ಲಿ ಉಳಿಸದ ಮಾಹಿತಿ ಇದೆ. ನೀವು ಹೊರಹೋಗಲು ಬಯಸುವಿರಾ?</string>
+    <string name="discard">ರದ್ದುಗೊಳಿಸಿ</string>
+    <string name="keep_editing">ಸಂಪಾದನೆ ಮುಂದುವರಿಸಿ</string>
+    <string name="submission_success_title">ದೂರು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಕೆಯಾಗಿದೆ!</string>
+    <string name="submission_success_desc">ನಿಮ್ಮ ದೂರು ಪೌರಸಭೆ ಪೋರ್ಟಲ್‌ನಲ್ಲಿ ನೋಂದಾಯಿಸಲ್ಪಟ್ಟಿದೆ.</string>
+    <string name="your_tracking_id">ನಿಮ್ಮ ಟ್ರ್ಯಾಕಿಂಗ್ ಐಡಿ</string>
+    <string name="copy_tracking_id">ಐಡಿ ಕಾಪಿ ಮಾಡಿ</string>
+    <string name="share_tracking_id">ಐಡಿ ಹಂಚಿಕೊಳ್ಳಿ</string>
+    <string name="track_this_complaint">ದೂರು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ</string>
+    <string name="back_to_home">ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ</string>
+    <string name="copied_to_clipboard">ಟ್ರ್ಯಾಕಿಂಗ್ ಐಡಿ ಕಾಪಿ ಮಾಡಲಾಗಿದೆ!</string>
+
+    <!-- Enums Labels -->
+    <string name="status_submitted">ಸಲ್ಲಿಸಲಾಗಿದೆ</string>
+    <string name="status_assigned">ನಿಯೋಜಿಸಲಾಗಿದೆ</string>
+    <string name="status_in_progress">ಪ್ರಗತಿಯಲ್ಲಿದೆ</string>
+    <string name="status_resolved">ಪರಿಹರಿಸಲಾಗಿದೆ</string>
+    <string name="status_closed">ಮುಕ್ತಾಯವಾಗಿದೆ</string>
+
+    <string name="priority_normal">ಸಾಮಾನ್ಯ ಆದ್ಯತೆ</string>
+    <string name="priority_emergency">ತುರ್ತು ಆದ್ಯತೆ</string>
+
+    <string name="role_citizen">ನಾಗರಿಕ</string>
+    <string name="role_admin">ಅಧಿಕಾರಿ</string>
+
+    <!-- Empty State -->
+    <string name="no_complaints_title">ಯಾವುದೇ ದೂರುಗಳು ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="no_complaints_desc">ನೀವು ഇതുವರೆಗೆ ಯಾವುದೇ ದೂರು ಸಲ್ಲಿಸಿಲ್ಲ.</string>
+</resources>
