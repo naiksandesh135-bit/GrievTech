@@ -11,42 +11,48 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-private val LightColorScheme = lightColorScheme(
-    primary = PrimaryPurple,
-    onPrimary = OnPrimaryWhite,
-    primaryContainer = PrimaryContainerPurple,
-    onPrimaryContainer = OnPrimaryContainerPurple,
-    secondary = SecondaryBlue,
-    onSecondary = OnSecondaryWhite,
-    secondaryContainer = SecondaryContainerBlue,
-    onSecondaryContainer = OnSecondaryContainerBlue,
-    error = ErrorRed,
-    onError = OnErrorWhite,
-    errorContainer = ErrorContainerRed,
-    onErrorContainer = OnErrorContainerRed,
-    background = SoftLavenderBackground,
-    onBackground = OnBackgroundDark,
-    surface = SurfaceLavender,
-    onSurface = OnSurfaceDark
-)
-
 private val DarkColorScheme = darkColorScheme(
-    primary = PrimaryPurpleDark,
+    primary = PrimaryMint,
     onPrimary = OnPrimaryDark,
-    primaryContainer = PrimaryContainerPurpleDark,
-    onPrimaryContainer = OnPrimaryContainerPurpleDark,
-    secondary = SecondaryBlueDark,
+    primaryContainer = PrimaryContainerDark,
+    onPrimaryContainer = OnPrimaryContainerDark,
+    secondary = SecondaryAmber,
     onSecondary = OnSecondaryDark,
-    secondaryContainer = SecondaryContainerBlueDark,
-    onSecondaryContainer = OnSecondaryContainerBlueDark,
+    secondaryContainer = SecondaryContainerDark,
+    onSecondaryContainer = OnSecondaryContainerDark,
+    tertiary = TertiaryCyan,
+    onTertiary = OnTertiaryDark,
     error = ErrorRed,
-    onError = OnErrorWhite,
-    errorContainer = ErrorContainerRed,
-    onErrorContainer = OnErrorContainerRed,
+    onError = OnErrorDark,
+    errorContainer = ErrorContainerDark,
+    onErrorContainer = OnErrorContainerDark,
     background = BackgroundDark,
     onBackground = OnBackgroundLight,
     surface = SurfaceDark,
-    onSurface = OnSurfaceLight
+    onSurface = OnSurfaceLight,
+    surfaceVariant = SurfaceVariantDark,
+    onSurfaceVariant = OnSurfaceVariantLight,
+    outline = OutlineDark,
+    outlineVariant = OutlineVariantDark
+)
+
+private val LightColorScheme = lightColorScheme(
+    primary = PrimaryMintLight,
+    onPrimary = OnPrimaryLight,
+    primaryContainer = PrimaryContainerLight,
+    onPrimaryContainer = OnPrimaryContainerLight,
+    secondary = SecondaryAmberLight,
+    onSecondary = OnSecondaryLight,
+    secondaryContainer = SecondaryContainerLight,
+    onSecondaryContainer = OnSecondaryContainerLight,
+    error = ErrorRed,
+    background = BackgroundLight,
+    onBackground = OnBackgroundDark,
+    surface = SurfaceLight,
+    onSurface = OnSurfaceDark,
+    surfaceVariant = SurfaceVariantLight,
+    onSurfaceVariant = OnSurfaceVariantDark,
+    outline = OutlineLight
 )
 
 @Composable
@@ -60,8 +66,10 @@ fun GrievTechTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+            window.statusBarColor = colorScheme.surface.toArgb()
+            window.navigationBarColor = colorScheme.background.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            WindowCompat.getInsetsController(window, view).isAppearanceLightNavigationBars = !darkTheme
         }
     }
 

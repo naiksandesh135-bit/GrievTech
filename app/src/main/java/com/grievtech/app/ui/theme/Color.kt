@@ -2,65 +2,60 @@ package com.grievtech.app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Brand Palette (Light)
-val PrimaryPurple = Color(0xFF4A148C)
-val OnPrimaryWhite = Color(0xFFFFFFFF)
-val PrimaryContainerPurple = Color(0xFFF3E5F5)
-val OnPrimaryContainerPurple = Color(0xFF310060)
+// Mint-Teal & Warm Amber Brand Palette (Dark-First)
+val BackgroundDark = Color(0xFF050B0D)
+val SurfaceDark = Color(0xFF0C1A1D)
+val SurfaceVariantDark = Color(0xFF132A2E)
 
-val SecondaryBlue = Color(0xFF1E88E5)
-val OnSecondaryWhite = Color(0xFFFFFFFF)
-val SecondaryContainerBlue = Color(0xFFE3F2FD)
-val OnSecondaryContainerBlue = Color(0xFF0D47A1)
+val PrimaryMint = Color(0xFF2EE6C5)
+val OnPrimaryDark = Color(0xFF04201C)
+val PrimaryContainerDark = Color(0xFF0F4F45)
+val OnPrimaryContainerDark = Color(0xFFBFFFF1)
 
-val SuccessGreen = Color(0xFF2E7D32)
-val OnSuccessWhite = Color(0xFFFFFFFF)
-val SuccessContainerGreen = Color(0xFFE8F5E9)
-val OnSuccessContainerGreen = Color(0xFF1B5E20)
+val SecondaryAmber = Color(0xFFF5B84A)
+val OnSecondaryDark = Color(0xFF2A1A00)
+val SecondaryContainerDark = Color(0xFF3C2C0B)
+val OnSecondaryContainerDark = Color(0xFFFFDF9E)
 
-val WarningAmber = Color(0xFFF9A825)
-val OnWarningDark = Color(0xFF212121)
-val WarningContainerAmber = Color(0xFFFFF8E1)
-val OnWarningContainerAmber = Color(0xFFF57F17)
+val TertiaryCyan = Color(0xFF5CC8FF)
+val OnTertiaryDark = Color(0xFF00354A)
 
-val ErrorRed = Color(0xFFC62828)
-val OnErrorWhite = Color(0xFFFFFFFF)
-val ErrorContainerRed = Color(0xFFFFEBEE)
-val OnErrorContainerRed = Color(0xFFB71C1C)
+val OnBackgroundLight = Color(0xFFF2FAF8)
+val OnSurfaceLight = Color(0xFFF2FAF8)
+val OnSurfaceVariantLight = Color(0xFF9DB8B4)
+val OutlineDark = Color(0xFF2C4A4E)
+val OutlineVariantDark = Color(0xFF1E383C)
 
-val SoftLavenderBackground = Color(0xFFF5F0FF)
-val SurfaceLavender = Color(0xFFFAFAFE)
-val OnBackgroundDark = Color(0xFF1C1B1F)
-val OnSurfaceDark = Color(0xFF1C1B1F)
+val ErrorRed = Color(0xFFFF6B6B)
+val OnErrorDark = Color(0xFF380000)
+val ErrorContainerDark = Color(0xFF4E1515)
+val OnErrorContainerDark = Color(0xFFFFDAD6)
 
-// Dark Palette
-val PrimaryPurpleDark = Color(0xFFD0BCFF)
-val OnPrimaryDark = Color(0xFF381E72)
-val PrimaryContainerPurpleDark = Color(0xFF4F378B)
-val OnPrimaryContainerPurpleDark = Color(0xFFEADDFF)
+val SuccessGreen = Color(0xFF4ADE80)
+val OnSuccessDark = Color(0xFF003912)
+val SuccessContainerDark = Color(0xFF00531D)
+val OnSuccessContainerDark = Color(0xFFB6F2C2)
 
-val SecondaryBlueDark = Color(0xFF90CAF9)
-val OnSecondaryDark = Color(0xFF00325B)
-val SecondaryContainerBlueDark = Color(0xFF004881)
-val OnSecondaryContainerBlueDark = Color(0xFFD1E4FF)
+// Light Palette (Same hues, high contrast)
+val BackgroundLight = Color(0xFFF4FBFA)
+val SurfaceLight = Color(0xFFFFFFFF)
+val SurfaceVariantLight = Color(0xFFE0F2EF)
 
-val BackgroundDark = Color(0xFF141218)
-val SurfaceDark = Color(0xFF1D1B20)
-val OnBackgroundLight = Color(0xFFE6E0E9)
-val OnSurfaceLight = Color(0xFFE6E0E9)
+val PrimaryMintLight = Color(0xFF0B8F7B)
+val OnPrimaryLight = Color(0xFFFFFFFF)
+val PrimaryContainerLight = Color(0xFFCCF5EE)
+val OnPrimaryContainerLight = Color(0xFF00201A)
 
-// Status Colors
-val StatusSubmittedBg = Color(0xFFE3F2FD)
-val StatusSubmittedText = Color(0xFF1565C0)
+val SecondaryAmberLight = Color(0xFFB7791F)
+val OnSecondaryLight = Color(0xFFFFFFFF)
+val SecondaryContainerLight = Color(0xFFFFDF9E)
+val OnSecondaryContainerLight = Color(0xFF2A1A00)
 
-val StatusAssignedBg = Color(0xFFF3E5F5)
-val StatusAssignedText = Color(0xFF6A1B9A)
+val OnBackgroundDark = Color(0xFF0B1A1C)
+val OnSurfaceDark = Color(0xFF0B1A1C)
+val OnSurfaceVariantDark = Color(0xFF404E4B)
+val OutlineLight = Color(0xFFB6D3CF)
 
-val StatusInProgressBg = Color(0xFFFFF8E1)
-val StatusInProgressText = Color(0xFFF57F17)
-
-val StatusResolvedBg = Color(0xFFE8F5E9)
-val StatusResolvedText = Color(0xFF2E7D32)
-
-val StatusClosedBg = Color(0xFFEEEEEE)
-val StatusClosedText = Color(0xFF616161)
+// Legacy alias compatibility
+val ErrorContainerRed = ErrorContainerDark
+val OnErrorContainerRed = OnErrorContainerDark

@@ -68,8 +68,6 @@ import com.grievtech.app.ui.components.GrievTextField
 import com.grievtech.app.ui.components.GrievTopBar
 import com.grievtech.app.ui.theme.Elevation
 import com.grievtech.app.ui.theme.GrievTechTheme
-import com.grievtech.app.ui.theme.PrimaryPurple
-import com.grievtech.app.ui.theme.SecondaryBlue
 import com.grievtech.app.ui.theme.Shapes
 import com.grievtech.app.ui.theme.Spacing
 
@@ -155,7 +153,10 @@ fun LoginScreenContent(
                 .padding(paddingValues)
                 .background(
                     brush = Brush.verticalGradient(
-                        colors = listOf(PrimaryPurple, SecondaryBlue)
+                        colors = listOf(
+                            MaterialTheme.colorScheme.surfaceVariant,
+                            MaterialTheme.colorScheme.background
+                        )
                     )
                 )
         ) {

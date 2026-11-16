@@ -1,7 +1,8 @@
 package com.grievtech.app.ui.components
 
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
@@ -10,7 +11,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,7 +47,9 @@ fun GrievButton(
                 shape = shape,
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
+                    contentColor = MaterialTheme.colorScheme.onPrimary,
+                    disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f),
+                    disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
                 )
             ) {
                 Text(text = text, style = MaterialTheme.typography.labelLarge)
@@ -56,8 +62,10 @@ fun GrievButton(
                 enabled = enabled,
                 shape = shape,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondary,
-                    contentColor = MaterialTheme.colorScheme.onSecondary
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f),
+                    disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
                 )
             ) {
                 Text(text = text, style = MaterialTheme.typography.labelLarge)
@@ -79,10 +87,10 @@ fun GrievButton(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode - Primary", showBackground = true)
 @Composable
 fun GrievButtonPrimaryPreview() {
-    GrievTechTheme {
+    GrievTechTheme(darkTheme = false) {
         GrievButton(
             text = "Submit Complaint",
             onClick = {},
@@ -92,10 +100,23 @@ fun GrievButtonPrimaryPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Dark Mode - Primary", showBackground = true)
+@Composable
+fun GrievButtonPrimaryDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
+        GrievButton(
+            text = "Submit Complaint",
+            onClick = {},
+            type = GrievButtonType.PRIMARY,
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
+
+@Preview(name = "Light Mode - Secondary", showBackground = true)
 @Composable
 fun GrievButtonSecondaryPreview() {
-    GrievTechTheme {
+    GrievTechTheme(darkTheme = false) {
         GrievButton(
             text = "Track Status",
             onClick = {},
@@ -105,10 +126,10 @@ fun GrievButtonSecondaryPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode - Outlined", showBackground = true)
 @Composable
 fun GrievButtonOutlinedPreview() {
-    GrievTechTheme {
+    GrievTechTheme(darkTheme = false) {
         GrievButton(
             text = "Cancel",
             onClick = {},

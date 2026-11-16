@@ -45,8 +45,6 @@ import com.grievtech.app.ui.components.GrievButton
 import com.grievtech.app.ui.components.GrievButtonType
 import com.grievtech.app.ui.components.LanguageSelector
 import com.grievtech.app.ui.theme.GrievTechTheme
-import com.grievtech.app.ui.theme.PrimaryPurple
-import com.grievtech.app.ui.theme.SecondaryBlue
 import com.grievtech.app.ui.theme.Shapes
 import com.grievtech.app.ui.theme.Spacing
 import com.grievtech.app.util.LanguageManager
@@ -194,7 +192,10 @@ private fun OnboardingPageItem(pageData: OnboardingPageData) {
                     .fillMaxSize()
                     .background(
                         brush = Brush.linearGradient(
-                            colors = listOf(PrimaryPurple, SecondaryBlue)
+                            colors = listOf(
+                                MaterialTheme.colorScheme.primary,
+                                MaterialTheme.colorScheme.tertiary
+                            )
                         )
                     ),
                 contentAlignment = Alignment.Center

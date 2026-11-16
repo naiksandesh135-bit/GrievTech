@@ -1,6 +1,7 @@
 package com.grievtech.app.ui.screens
 
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -64,8 +65,6 @@ import com.grievtech.app.ui.components.GrievTopBar
 import com.grievtech.app.ui.components.LanguageSelector
 import com.grievtech.app.ui.theme.Elevation
 import com.grievtech.app.ui.theme.GrievTechTheme
-import com.grievtech.app.ui.theme.PrimaryPurple
-import com.grievtech.app.ui.theme.SecondaryBlue
 import com.grievtech.app.ui.theme.Shapes
 import com.grievtech.app.ui.theme.Spacing
 import com.grievtech.app.util.LanguageManager
@@ -73,8 +72,7 @@ import com.grievtech.app.util.LanguageManager
 data class IssueCategoryCardData(
     val titleRes: Int,
     val descRes: Int,
-    val icon: ImageVector,
-    val gradientColors: List<androidx.compose.ui.graphics.Color>
+    val icon: ImageVector
 )
 
 @Composable
@@ -91,38 +89,32 @@ fun LandingScreen(
         IssueCategoryCardData(
             titleRes = R.string.issue_potholes_title,
             descRes = R.string.issue_potholes_desc,
-            icon = Icons.Default.Build,
-            gradientColors = listOf(PrimaryPurple, SecondaryBlue)
+            icon = Icons.Default.Build
         ),
         IssueCategoryCardData(
             titleRes = R.string.issue_streetlights_title,
             descRes = R.string.issue_streetlights_desc,
-            icon = Icons.Default.Lightbulb,
-            gradientColors = listOf(SecondaryBlue, PrimaryPurple)
+            icon = Icons.Default.Lightbulb
         ),
         IssueCategoryCardData(
             titleRes = R.string.issue_garbage_title,
             descRes = R.string.issue_garbage_desc,
-            icon = Icons.Default.Delete,
-            gradientColors = listOf(PrimaryPurple, MaterialTheme.colorScheme.tertiary)
+            icon = Icons.Default.Delete
         ),
         IssueCategoryCardData(
             titleRes = R.string.issue_water_title,
             descRes = R.string.issue_water_desc,
-            icon = Icons.Default.WaterDrop,
-            gradientColors = listOf(SecondaryBlue, MaterialTheme.colorScheme.primary)
+            icon = Icons.Default.WaterDrop
         ),
         IssueCategoryCardData(
             titleRes = R.string.issue_electricity_title,
             descRes = R.string.issue_electricity_desc,
-            icon = Icons.Default.Bolt,
-            gradientColors = listOf(PrimaryPurple, SecondaryBlue)
+            icon = Icons.Default.Bolt
         ),
         IssueCategoryCardData(
             titleRes = R.string.issue_other_title,
             descRes = R.string.issue_other_desc,
-            icon = Icons.Default.AssignmentTurnedIn,
-            gradientColors = listOf(SecondaryBlue, PrimaryPurple)
+            icon = Icons.Default.AssignmentTurnedIn
         )
     )
 
@@ -146,17 +138,27 @@ fun LandingScreen(
                 .padding(paddingValues)
                 .verticalScroll(scrollState)
         ) {
-            // Gradient Hero Section
+            // Radial Mint Glow Hero Section
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(PrimaryPurple, SecondaryBlue)
-                        )
-                    )
+                    .background(MaterialTheme.colorScheme.background)
                     .padding(Spacing.lg)
             ) {
+                Box(
+                    modifier = Modifier
+                        .size(240.dp)
+                        .align(Alignment.Center)
+                        .background(
+                            brush = Brush.radialGradient(
+                                colors = listOf(
+                                    MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
+                                    Color.Transparent
+                                )
+                            )
+                        )
+                )
+
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.fillMaxWidth()
@@ -169,9 +171,9 @@ fun LandingScreen(
                         shadowElevation = 8.dp
                     ) {
                         Image(
-                            painter = androidx.compose.ui.res.painterResource(R.drawable.ic_logo_full),
+                            painter = painterResource(R.drawable.ic_logo_full),
                             contentDescription = "GrievTech logo",
-                            contentScale = androidx.compose.ui.layout.ContentScale.Fit,
+                            contentScale = ContentScale.Fit,
                             modifier = Modifier.fillMaxSize()
                         )
                     }
@@ -182,10 +184,10 @@ fun LandingScreen(
                         text = stringResource(R.string.landing_hero_title),
                         style = MaterialTheme.typography.headlineMedium.copy(
                             fontWeight = FontWeight.ExtraBold,
-                            fontSize = 26.sp
+                            fontSize = 24.sp
                         ),
                         textAlign = TextAlign.Center,
-                        color = MaterialTheme.colorScheme.onPrimary
+                        color = MaterialTheme.colorScheme.onBackground
                     )
 
                     Spacer(modifier = Modifier.height(Spacing.xs))
@@ -194,7 +196,7 @@ fun LandingScreen(
                         text = stringResource(R.string.landing_hero_subtitle),
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center,
-                        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.9f)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
                     Spacer(modifier = Modifier.height(Spacing.lg))
@@ -319,7 +321,7 @@ fun LandingScreen(
                     .padding(Spacing.lg),
                 shape = Shapes.medium,
                 elevation = CardDefaults.cardElevation(defaultElevation = Elevation.low),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
             ) {
                 Column(
                     modifier = Modifier.padding(Spacing.md),
@@ -328,7 +330,7 @@ fun LandingScreen(
                     Text(
                         text = stringResource(R.string.impact_title),
                         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
 
                     Spacer(modifier = Modifier.height(Spacing.sm))
@@ -384,12 +386,13 @@ private fun IssueCategoryCard(
             .scale(scale)
             .clickable(interactionSource = interactionSource, indication = null, onClick = onClick),
         shape = Shapes.medium,
-        elevation = CardDefaults.cardElevation(defaultElevation = Elevation.low)
+        elevation = CardDefaults.cardElevation(defaultElevation = Elevation.low),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(brush = Brush.linearGradient(colors = data.gradientColors))
                 .padding(Spacing.md)
         ) {
             Column(
@@ -399,7 +402,7 @@ private fun IssueCategoryCard(
                 Icon(
                     imageVector = data.icon,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimary,
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(36.dp)
                 )
 
@@ -407,13 +410,13 @@ private fun IssueCategoryCard(
                     Text(
                         text = stringResource(data.titleRes),
                         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                        color = MaterialTheme.colorScheme.onPrimary
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     Spacer(modifier = Modifier.height(Spacing.xxs))
                     Text(
                         text = stringResource(data.descRes),
                         style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.85f),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 2
                     )
                 }
@@ -439,14 +442,14 @@ private fun HowItWorksStep(
         ) {
             Surface(
                 shape = Shapes.small,
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.primaryContainer,
                 modifier = Modifier.size(32.dp)
             ) {
                 Box(contentAlignment = Alignment.Center) {
                     Text(
                         text = number,
                         style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                        color = MaterialTheme.colorScheme.onPrimary
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 }
             }
@@ -478,7 +481,7 @@ private fun ImpactItem(value: String, label: String) {
         Text(
             text = label,
             style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onPrimaryContainer
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
 }
@@ -487,12 +490,13 @@ private fun ImpactItem(value: String, label: String) {
 private fun SdgChip(title: String) {
     Surface(
         shape = Shapes.small,
-        color = MaterialTheme.colorScheme.secondaryContainer
+        color = MaterialTheme.colorScheme.surfaceVariant,
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
     ) {
         Text(
             text = title,
             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.xs)
         )
     }

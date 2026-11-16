@@ -14,16 +14,6 @@ import com.grievtech.app.data.model.ComplaintStatus
 import com.grievtech.app.ui.theme.GrievTechTheme
 import com.grievtech.app.ui.theme.Shapes
 import com.grievtech.app.ui.theme.Spacing
-import com.grievtech.app.ui.theme.StatusAssignedBg
-import com.grievtech.app.ui.theme.StatusAssignedText
-import com.grievtech.app.ui.theme.StatusClosedBg
-import com.grievtech.app.ui.theme.StatusClosedText
-import com.grievtech.app.ui.theme.StatusInProgressBg
-import com.grievtech.app.ui.theme.StatusInProgressText
-import com.grievtech.app.ui.theme.StatusResolvedBg
-import com.grievtech.app.ui.theme.StatusResolvedText
-import com.grievtech.app.ui.theme.StatusSubmittedBg
-import com.grievtech.app.ui.theme.StatusSubmittedText
 
 @Composable
 fun StatusChip(
@@ -31,11 +21,11 @@ fun StatusChip(
     modifier: Modifier = Modifier
 ) {
     val (bgColor, textColor) = when (status) {
-        ComplaintStatus.SUBMITTED -> StatusSubmittedBg to StatusSubmittedText
-        ComplaintStatus.ASSIGNED -> StatusAssignedBg to StatusAssignedText
-        ComplaintStatus.IN_PROGRESS -> StatusInProgressBg to StatusInProgressText
-        ComplaintStatus.RESOLVED -> StatusResolvedBg to StatusResolvedText
-        ComplaintStatus.CLOSED -> StatusClosedBg to StatusClosedText
+        ComplaintStatus.SUBMITTED -> MaterialTheme.colorScheme.primaryContainer to MaterialTheme.colorScheme.primary
+        ComplaintStatus.ASSIGNED -> MaterialTheme.colorScheme.tertiary.copy(alpha = 0.15f) to MaterialTheme.colorScheme.tertiary
+        ComplaintStatus.IN_PROGRESS -> MaterialTheme.colorScheme.secondary.copy(alpha = 0.15f) to MaterialTheme.colorScheme.secondary
+        ComplaintStatus.RESOLVED -> Color(0xFF4ADE80).copy(alpha = 0.15f) to Color(0xFF4ADE80)
+        ComplaintStatus.CLOSED -> MaterialTheme.colorScheme.outline.copy(alpha = 0.15f) to MaterialTheme.colorScheme.outline
     }
 
     Surface(
@@ -52,10 +42,22 @@ fun StatusChip(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode", showBackground = true)
 @Composable
-fun StatusChipPreview() {
-    GrievTechTheme {
+fun StatusChipLightPreview() {
+    GrievTechTheme(darkTheme = false) {
+        Row(modifier = Modifier.padding(16.dp)) {
+            ComplaintStatus.entries.forEach { status ->
+                StatusChip(status = status, modifier = Modifier.padding(end = 8.dp))
+            }
+        }
+    }
+}
+
+@Preview(name = "Dark Mode", showBackground = true)
+@Composable
+fun StatusChipDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
         Row(modifier = Modifier.padding(16.dp)) {
             ComplaintStatus.entries.forEach { status ->
                 StatusChip(status = status, modifier = Modifier.padding(end = 8.dp))

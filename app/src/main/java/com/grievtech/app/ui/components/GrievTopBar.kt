@@ -71,7 +71,7 @@ fun GrievTopBar(
                         style = MaterialTheme.typography.titleMedium,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
-                        color = MaterialTheme.colorScheme.onPrimary
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     if (subtitle != null) {
                         Text(
@@ -79,7 +79,7 @@ fun GrievTopBar(
                             style = MaterialTheme.typography.labelMedium,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                            color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.85f)
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -91,26 +91,26 @@ fun GrievTopBar(
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
                         contentDescription = "Back",
-                        tint = MaterialTheme.colorScheme.onPrimary
+                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
         },
         actions = { actions() },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            titleContentColor = MaterialTheme.colorScheme.onPrimary,
-            navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
-            actionIconContentColor = MaterialTheme.colorScheme.onPrimary
+            containerColor = MaterialTheme.colorScheme.surface,
+            titleContentColor = MaterialTheme.colorScheme.onSurface,
+            navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+            actionIconContentColor = MaterialTheme.colorScheme.onSurface
         ),
         modifier = modifier
     )
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode", showBackground = true)
 @Composable
-fun GrievTopBarPreview() {
-    GrievTechTheme {
+fun GrievTopBarLightPreview() {
+    GrievTechTheme(darkTheme = false) {
         GrievTopBar(
             title = "GrievTech",
             subtitle = "Raise · Track · Resolve"
@@ -118,13 +118,13 @@ fun GrievTopBarPreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Dark Mode", showBackground = true)
 @Composable
-fun GrievTopBarWithBackPreview() {
-    GrievTechTheme {
+fun GrievTopBarDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
         GrievTopBar(
-            title = "Submit Complaint",
-            onBackClick = {}
+            title = "GrievTech",
+            subtitle = "Raise · Track · Resolve"
         )
     }
 }
