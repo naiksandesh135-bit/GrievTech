@@ -1,6 +1,7 @@
 package com.grievtech.app.ui.screens
 
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -20,6 +21,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AssignmentTurnedIn
@@ -27,7 +29,6 @@ import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material.icons.filled.LocationCity
 import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -41,9 +42,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -156,12 +161,20 @@ fun LandingScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.LocationCity,
-                        contentDescription = "GrievTech Logo",
-                        tint = MaterialTheme.colorScheme.onPrimary,
-                        modifier = Modifier.size(72.dp)
-                    )
+                    Surface(
+                        modifier = Modifier
+                            .size(160.dp)
+                            .clip(CircleShape),
+                        color = Color.Black,
+                        shadowElevation = 8.dp
+                    ) {
+                        Image(
+                            painter = androidx.compose.ui.res.painterResource(R.drawable.ic_logo_full),
+                            contentDescription = "GrievTech logo",
+                            contentScale = androidx.compose.ui.layout.ContentScale.Fit,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    }
 
                     Spacer(modifier = Modifier.height(Spacing.sm))
 
@@ -485,10 +498,23 @@ private fun SdgChip(title: String) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode", showBackground = true)
 @Composable
-fun LandingScreenPreview() {
-    GrievTechTheme {
+fun LandingScreenLightPreview() {
+    GrievTechTheme(darkTheme = false) {
+        LandingScreen(
+            languageManager = null,
+            onNavigateToLogin = {},
+            onNavigateToRegister = {},
+            onNavigateToTrack = {}
+        )
+    }
+}
+
+@Preview(name = "Dark Mode", showBackground = true)
+@Composable
+fun LandingScreenDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
         LandingScreen(
             languageManager = null,
             onNavigateToLogin = {},

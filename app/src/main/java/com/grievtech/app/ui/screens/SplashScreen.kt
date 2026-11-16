@@ -2,6 +2,7 @@ package com.grievtech.app.ui.screens
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,10 +13,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.LocationCity
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -27,12 +26,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.grievtech.app.R
 import com.grievtech.app.ui.session.AuthState
 import com.grievtech.app.ui.session.SessionViewModel
 import com.grievtech.app.ui.theme.GrievTechTheme
@@ -83,33 +85,22 @@ fun SplashScreen(
                 .alpha(alpha.value)
                 .padding(Spacing.lg)
         ) {
-            Icon(
-                imageVector = Icons.Default.LocationCity,
-                contentDescription = "GrievTech Logo",
-                tint = MaterialTheme.colorScheme.onPrimary,
-                modifier = Modifier.size(88.dp)
-            )
+            Surface(
+                modifier = Modifier
+                    .size(180.dp)
+                    .clip(CircleShape),
+                color = Color.Black,
+                shadowElevation = 8.dp
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.ic_logo_full),
+                    contentDescription = "GrievTech logo",
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
 
-            Spacer(modifier = Modifier.height(Spacing.md))
-
-            Text(
-                text = "GrievTech",
-                style = MaterialTheme.typography.displayLarge.copy(
-                    fontWeight = FontWeight.ExtraBold,
-                    fontSize = 40.sp
-                ),
-                color = MaterialTheme.colorScheme.onPrimary
-            )
-
-            Spacer(modifier = Modifier.height(Spacing.xs))
-
-            Text(
-                text = "Raise · Track · Resolve",
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.9f)
-            )
-
-            Spacer(modifier = Modifier.height(Spacing.xl))
+            Spacer(modifier = Modifier.height(Spacing.lg))
 
             Row(horizontalArrangement = Arrangement.spacedBy(Spacing.sm)) {
                 SdgBadge(number = "11", title = "Sustainable Cities")
@@ -147,21 +138,54 @@ private fun SdgBadge(number: String, title: String) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode", showBackground = true)
 @Composable
-fun SplashScreenPreview() {
-    GrievTechTheme {
+fun SplashScreenLightPreview() {
+    GrievTechTheme(darkTheme = false) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.primary),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "GrievTech",
-                style = MaterialTheme.typography.displayLarge,
-                color = MaterialTheme.colorScheme.onPrimary
-            )
+            Surface(
+                modifier = Modifier
+                    .size(180.dp)
+                    .clip(CircleShape),
+                color = Color.Black
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.ic_logo_full),
+                    contentDescription = "GrievTech logo",
+                    contentScale = ContentScale.Fit
+                )
+            }
+        }
+    }
+}
+
+@Preview(name = "Dark Mode", showBackground = true)
+@Composable
+fun SplashScreenDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.primary),
+            contentAlignment = Alignment.Center
+        ) {
+            Surface(
+                modifier = Modifier
+                    .size(180.dp)
+                    .clip(CircleShape),
+                color = Color.Black
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.ic_logo_full),
+                    contentDescription = "GrievTech logo",
+                    contentScale = ContentScale.Fit
+                )
+            }
         }
     }
 }

@@ -38,11 +38,13 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.grievtech.app.R
 import com.grievtech.app.ui.components.GrievButton
 import com.grievtech.app.ui.components.GrievButtonType
 import com.grievtech.app.ui.components.LanguageSelector
+import com.grievtech.app.ui.theme.GrievTechTheme
 import com.grievtech.app.ui.theme.PrimaryPurple
 import com.grievtech.app.ui.theme.SecondaryBlue
 import com.grievtech.app.ui.theme.Shapes
@@ -222,6 +224,34 @@ private fun OnboardingPageItem(pageData: OnboardingPageData) {
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
+        )
+    }
+}
+
+@Preview(name = "Light Mode", showBackground = true)
+@Composable
+fun OnboardingScreenLightPreview() {
+    GrievTechTheme(darkTheme = false) {
+        OnboardingPageItem(
+            pageData = OnboardingPageData(
+                titleRes = R.string.onboarding_title_1,
+                descRes = R.string.onboarding_desc_1,
+                icon = Icons.Default.AddAPhoto
+            )
+        )
+    }
+}
+
+@Preview(name = "Dark Mode", showBackground = true)
+@Composable
+fun OnboardingScreenDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
+        OnboardingPageItem(
+            pageData = OnboardingPageData(
+                titleRes = R.string.onboarding_title_1,
+                descRes = R.string.onboarding_desc_1,
+                icon = Icons.Default.AddAPhoto
+            )
         )
     }
 }

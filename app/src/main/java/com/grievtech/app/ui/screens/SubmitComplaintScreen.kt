@@ -10,7 +10,6 @@ import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
@@ -23,6 +22,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -36,12 +37,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AssignmentTurnedIn
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.CleaningServices
 import androidx.compose.material.icons.filled.Close
@@ -213,6 +213,31 @@ fun SubmitComplaintScreen(
                 }
             )
         },
+        bottomBar = {
+            Surface(
+                shadowElevation = Elevation.medium,
+                tonalElevation = Elevation.low,
+                color = MaterialTheme.colorScheme.surface
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(Spacing.md)
+                ) {
+                    if (uiState.submissionState is SubmissionState.Uploading) {
+                        LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                        Spacer(modifier = Modifier.height(Spacing.xs))
+                    }
+                    GrievButton(
+                        text = stringResource(R.string.submit_btn),
+                        onClick = viewModel::submitComplaint,
+                        enabled = viewModel.isFormValid(),
+                        type = GrievButtonType.PRIMARY,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            }
+        },
         modifier = modifier
     ) { paddingValues ->
         Box(
@@ -243,11 +268,7 @@ fun SubmitComplaintScreen(
                     elevation = CardDefaults.cardElevation(defaultElevation = Elevation.low)
                 ) {
                     Column(modifier = Modifier.padding(Spacing.md)) {
-                        Text(
-                            text = stringResource(R.string.category_label),
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
+                        StepHeader(number = "1", title = stringResource(R.string.category_label))
                         Spacer(modifier = Modifier.height(Spacing.sm))
                         FlowRow(
                             modifier = Modifier.fillMaxWidth(),
@@ -266,14 +287,18 @@ fun SubmitComplaintScreen(
                                     },
                                     leadingIcon = {
                                         Icon(
-                                            imageVector = when (cat) {
-                                                Category.POTHOLES -> Icons.Default.Build
-                                                Category.STREETLIGHTS -> Icons.Default.Lightbulb
-                                                Category.GARBAGE -> Icons.Default.Delete
-                                                Category.WATER -> Icons.Default.WaterDrop
-                                                Category.ELECTRICITY -> Icons.Default.Bolt
-                                                Category.SANITATION -> Icons.Default.CleaningServices
-                                                Category.OTHER -> Icons.Default.AssignmentTurnedIn
+                                            imageVector = if (uiState.category == cat) {
+                                                Icons.Default.Check
+                                            } else {
+                                                when (cat) {
+                                                    Category.POTHOLES -> Icons.Default.Build
+                                                    Category.STREETLIGHTS -> Icons.Default.Lightbulb
+                                                    Category.GARBAGE -> Icons.Default.Delete
+                                                    Category.WATER -> Icons.Default.WaterDrop
+                                                    Category.ELECTRICITY -> Icons.Default.Bolt
+                                                    Category.SANITATION -> Icons.Default.CleaningServices
+                                                    Category.OTHER -> Icons.Default.AssignmentTurnedIn
+                                                }
                                             },
                                             contentDescription = null,
                                             modifier = Modifier.size(16.dp)
@@ -294,11 +319,8 @@ fun SubmitComplaintScreen(
                     elevation = CardDefaults.cardElevation(defaultElevation = Elevation.low)
                 ) {
                     Column(modifier = Modifier.padding(Spacing.md)) {
-                        Text(
-                            text = stringResource(R.string.title_label),
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
-                        )
-                        Spacer(modifier = Modifier.height(Spacing.xs))
+                        StepHeader(number = "2", title = "Title & Description")
+                        Spacer(modifier = Modifier.height(Spacing.sm))
                         GrievTextField(
                             value = uiState.title,
                             onValueChange = viewModel::onTitleChanged,
@@ -369,11 +391,8 @@ fun SubmitComplaintScreen(
                     elevation = CardDefaults.cardElevation(defaultElevation = Elevation.low)
                 ) {
                     Column(modifier = Modifier.padding(Spacing.md)) {
-                        Text(
-                            text = stringResource(R.string.priority_label),
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
-                        )
-                        Spacer(modifier = Modifier.height(Spacing.xs))
+                        StepHeader(number = "3", title = stringResource(R.string.priority_label))
+                        Spacer(modifier = Modifier.height(Spacing.sm))
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(Spacing.sm)
@@ -429,12 +448,9 @@ fun SubmitComplaintScreen(
                     elevation = CardDefaults.cardElevation(defaultElevation = Elevation.low)
                 ) {
                     Column(modifier = Modifier.padding(Spacing.md)) {
-                        Text(
-                            text = stringResource(R.string.evidence_label),
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
-                        )
+                        StepHeader(number = "4", title = stringResource(R.string.evidence_label))
 
-                        Spacer(modifier = Modifier.height(Spacing.xs))
+                        Spacer(modifier = Modifier.height(Spacing.sm))
 
                         // Live Location Mode Banner
                         Surface(
@@ -513,7 +529,6 @@ fun SubmitComplaintScreen(
                             )
                         }
 
-                        // Media Attachment Preview with Geotag Badge & Location Info
                         if (uiState.selectedMediaUri != null) {
                             Spacer(modifier = Modifier.height(Spacing.md))
                             Card(
@@ -556,7 +571,6 @@ fun SubmitComplaintScreen(
                                             }
                                         }
 
-                                        // Geotag Status Badge
                                         Surface(
                                             shape = CircleShape,
                                             color = if (uiState.attachmentGeoPoint != null) Color(0xFF2E7D32) else Color(0xFFD84315),
@@ -639,11 +653,11 @@ fun SubmitComplaintScreen(
                                 tint = MaterialTheme.colorScheme.primary
                             )
                             Spacer(modifier = Modifier.width(Spacing.xs))
-                            Text(
-                                text = if (uiState.locationSource == "photo_exif") stringResource(R.string.location_from_photo) else stringResource(R.string.location_label),
-                                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                                modifier = Modifier.weight(1f)
+                            StepHeader(
+                                number = "5",
+                                title = if (uiState.locationSource == "photo_exif") stringResource(R.string.location_from_photo) else stringResource(R.string.location_label)
                             )
+                            Spacer(modifier = Modifier.weight(1f))
                             if (uiState.locationMode is LocationMode.DeviceFix) {
                                 TextButton(onClick = viewModel::fetchLocation) {
                                     Text(stringResource(R.string.retry))
@@ -710,19 +724,6 @@ fun SubmitComplaintScreen(
                 }
 
                 Spacer(modifier = Modifier.height(Spacing.xl))
-
-                if (uiState.submissionState is SubmissionState.Uploading) {
-                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-                    Spacer(modifier = Modifier.height(Spacing.sm))
-                }
-
-                GrievButton(
-                    text = stringResource(R.string.submit_btn),
-                    onClick = viewModel::submitComplaint,
-                    enabled = viewModel.isFormValid(),
-                    type = GrievButtonType.PRIMARY,
-                    modifier = Modifier.fillMaxWidth()
-                )
             }
         }
     }
@@ -791,7 +792,6 @@ fun SubmitComplaintScreen(
         }
     }
 
-    // Location Off / No EXIF GPS Dialog
     if (uiState.showLocationOffDialog) {
         AlertDialog(
             onDismissRequest = { viewModel.setShowLocationOffDialog(false) },
@@ -834,6 +834,33 @@ fun SubmitComplaintScreen(
                     Text(stringResource(R.string.keep_editing))
                 }
             }
+        )
+    }
+}
+
+@Composable
+private fun StepHeader(number: String, title: String) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(Spacing.xs)
+    ) {
+        Surface(
+            shape = CircleShape,
+            color = MaterialTheme.colorScheme.primaryContainer,
+            modifier = Modifier.size(24.dp)
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Text(
+                    text = number,
+                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            }
+        }
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
 }
@@ -962,10 +989,22 @@ private fun SubmissionSuccessContent(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode", showBackground = true)
 @Composable
-fun SubmitComplaintScreenPreview() {
-    GrievTechTheme {
+fun SubmitComplaintScreenLightPreview() {
+    GrievTechTheme(darkTheme = false) {
+        SubmissionSuccessContent(
+            trackingId = "GT-984210",
+            onTrackClick = {},
+            onHomeClick = {}
+        )
+    }
+}
+
+@Preview(name = "Dark Mode", showBackground = true)
+@Composable
+fun SubmitComplaintScreenDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
         SubmissionSuccessContent(
             trackingId = "GT-984210",
             onTrackClick = {},

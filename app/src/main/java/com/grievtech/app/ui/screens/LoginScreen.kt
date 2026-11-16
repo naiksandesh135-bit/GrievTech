@@ -1,5 +1,6 @@
 package com.grievtech.app.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,12 +14,12 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.LocationCity
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -30,6 +31,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -38,8 +40,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -162,12 +168,20 @@ fun LoginScreenContent(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Icon(
-                    imageVector = Icons.Default.LocationCity,
-                    contentDescription = "GrievTech Logo",
-                    tint = MaterialTheme.colorScheme.onPrimary,
-                    modifier = Modifier.size(64.dp)
-                )
+                Surface(
+                    modifier = Modifier
+                        .size(160.dp)
+                        .clip(CircleShape),
+                    color = Color.Black,
+                    shadowElevation = 8.dp
+                ) {
+                    Image(
+                        painter = painterResource(R.drawable.ic_logo_full),
+                        contentDescription = "GrievTech logo",
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
 
                 Spacer(modifier = Modifier.height(Spacing.xs))
 
@@ -390,10 +404,31 @@ fun LoginScreenContent(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light Mode", showBackground = true)
 @Composable
-fun LoginScreenPreview() {
-    GrievTechTheme {
+fun LoginScreenLightPreview() {
+    GrievTechTheme(darkTheme = false) {
+        LoginScreenContent(
+            state = com.grievtech.app.ui.auth.LoginUiState(),
+            onRoleChange = {},
+            onEmailChange = {},
+            onPasswordChange = {},
+            onTogglePasswordVisibility = {},
+            onLoginClick = {},
+            onForgotPasswordClick = {},
+            onDismissForgotPassword = {},
+            onForgotPasswordEmailChange = {},
+            onSendResetClick = {},
+            onNavigateToRegister = {},
+            onBackClick = {}
+        )
+    }
+}
+
+@Preview(name = "Dark Mode", showBackground = true)
+@Composable
+fun LoginScreenDarkPreview() {
+    GrievTechTheme(darkTheme = true) {
         LoginScreenContent(
             state = com.grievtech.app.ui.auth.LoginUiState(),
             onRoleChange = {},
