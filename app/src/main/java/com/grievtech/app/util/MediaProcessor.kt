@@ -9,6 +9,7 @@ import androidx.exifinterface.media.ExifInterface
 import com.grievtech.app.data.model.MediaType
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.io.InputStream
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -18,7 +19,8 @@ sealed class MediaProcessResult {
         val bytes: ByteArray,
         val fileName: String,
         val mimeType: String,
-        val mediaType: MediaType
+        val mediaType: MediaType,
+        val geoPoint: GeoPoint? = null
     ) : MediaProcessResult()
 
     data class Error(val message: String) : MediaProcessResult()
@@ -35,7 +37,7 @@ open class MediaProcessor @Inject constructor(
         const val MAX_IMAGE_DIMENSION = 1600
     }
 
-    fun processMediaUri(uri: Uri): MediaProcessResult {
+    open fun processMediaUri(uri: Uri): MediaProcessResult {
         return try {
             val contentResolver = context.contentResolver
             val mimeType = contentResolver.getType(uri) ?: getMimeTypeFromExtension(uri)
@@ -48,15 +50,17 @@ open class MediaProcessor @Inject constructor(
                 else -> MediaType.IMAGE
             }
 
+            val extractedGeoPoint = GeoTagReader.extractGeoPoint(context, uri)
+
             when (mediaType) {
                 MediaType.IMAGE -> {
                     if (fileSize > MAX_IMAGE_SIZE_BYTES) {
                         return MediaProcessResult.Error("Image file size exceeds the 10 MB limit.")
                     }
-                    val compressedBytes = compressImage(uri)
+                    val compressedBytes = compressImage(uri, extractedGeoPoint)
                     val extension = getExtensionFromMime(mimeType, "jpg")
                     val fileName = "img_${System.currentTimeMillis()}.$extension"
-                    MediaProcessResult.Success(compressedBytes, fileName, mimeType, MediaType.IMAGE)
+                    MediaProcessResult.Success(compressedBytes, fileName, mimeType, MediaType.IMAGE, extractedGeoPoint)
                 }
                 MediaType.VIDEO -> {
                     if (fileSize > MAX_VIDEO_SIZE_BYTES) {
@@ -65,7 +69,7 @@ open class MediaProcessor @Inject constructor(
                     val bytes = readBytes(uri)
                     val extension = getExtensionFromMime(mimeType, "mp4")
                     val fileName = "vid_${System.currentTimeMillis()}.$extension"
-                    MediaProcessResult.Success(bytes, fileName, mimeType, MediaType.VIDEO)
+                    MediaProcessResult.Success(bytes, fileName, mimeType, MediaType.VIDEO, extractedGeoPoint)
                 }
                 MediaType.PDF -> {
                     if (fileSize > MAX_PDF_SIZE_BYTES) {
@@ -73,7 +77,7 @@ open class MediaProcessor @Inject constructor(
                     }
                     val bytes = readBytes(uri)
                     val fileName = "doc_${System.currentTimeMillis()}.pdf"
-                    MediaProcessResult.Success(bytes, fileName, "application/pdf", MediaType.PDF)
+                    MediaProcessResult.Success(bytes, fileName, "application/pdf", MediaType.PDF, null)
                 }
             }
         } catch (e: Exception) {
@@ -81,7 +85,7 @@ open class MediaProcessor @Inject constructor(
         }
     }
 
-    private fun compressImage(uri: Uri): ByteArray {
+    private fun compressImage(uri: Uri, geoPoint: GeoPoint?): ByteArray {
         context.contentResolver.openInputStream(uri).use { inputStream ->
             val options = BitmapFactory.Options().apply { inJustDecodeBounds = true }
             BitmapFactory.decodeStream(inputStream, null, options)
@@ -110,7 +114,21 @@ open class MediaProcessor @Inject constructor(
 
             val outputStream = ByteArrayOutputStream()
             scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 80, outputStream)
-            return outputStream.toByteArray()
+            val compressedBytes = outputStream.toByteArray()
+
+            if (geoPoint != null && geoPoint.isValid()) {
+                try {
+                    val tempFile = File.createTempFile("temp_compressed_", ".jpg", context.cacheDir)
+                    tempFile.writeBytes(compressedBytes)
+                    GeoTagReader.embedGpsIntoExif(tempFile.absolutePath, geoPoint.latitude, geoPoint.longitude)
+                    val resultBytes = tempFile.readBytes()
+                    tempFile.delete()
+                    return resultBytes
+                } catch (e: Exception) {
+                    return compressedBytes
+                }
+            }
+            return compressedBytes
         }
     }
 

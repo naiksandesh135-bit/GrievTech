@@ -166,6 +166,19 @@
     <string name="back_to_home">హోమ్‌కి తిరిగి వెళ్లు</string>
     <string name="copied_to_clipboard">ట్రాకింగ్ ఐడీ కాపీ చేయబడింది!</string>
 
+    <!-- Phase 4 Revised Location & Geotag Rules -->
+    <string name="rule_device_gps_banner">లొకేషన్ ఆన్‌లో ఉంది. ఏ ఫోటో అయినా చెల్లుతుంది.</string>
+    <string name="rule_device_off_banner">లొకేషన్ ఆఫ్‌లో ఉంది. మీరు జియో-ట్యాగ్ చేసిన ఫోటోను అప్‌లోడ్ చేయాలి.</string>
+    <string name="turn_on_location">లొకేషన్ ఆన్ చేయండి</string>
+    <string name="badge_geotagged">జియో-ట్యాగ్ చేయబడింది</string>
+    <string name="badge_no_geotag">లొకేషన్ డేటా లేదు</string>
+    <string name="location_from_photo">ఫోటో నుండి పొందిన ప్రదేశం</string>
+    <string name="location_off_dialog_title">లొకేషన్ డేటా అవసరం</string>
+    <string name="location_off_dialog_desc">లొకేషన్ ఆఫ్‌లో ఉంది మరియు ఈ ఫోటోలో లొకేషన్ డేటా లేదు. లొకేషన్ ఆన్ చేయండి లేదా జియో-ట్యాగ్ ఫోటోను ఉపయోగించండి.</string>
+    <string name="choose_geotagged_photo">జియో-ట్యాగ్ ఫోటోను ఎంచుకోండి</string>
+    <string name="evidence_required_error">ఫిర్యాదు చేయడానికి ఫోటో లేదా వీడియో అవసరం.</string>
+    <string name="geotagged_required_error">లొకేషన్ ఆఫ్‌లో ఉన్నప్పుడు జియో-ట్యాగ్ ఫోటో అవసరం.</string>
+
     <!-- Enums Labels -->
     <string name="status_submitted">సమర్పించబడింది</string>
     <string name="status_assigned">కేటాయించబడింది</string>

@@ -1,10 +1,14 @@
 package com.grievtech.app.util
 
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.location.LocationManager
 import android.os.Build
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -12,6 +16,9 @@ import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
@@ -32,6 +39,12 @@ sealed class LocationFetchResult {
     data class Error(val message: String) : LocationFetchResult()
 }
 
+sealed class LocationMode {
+    data class DeviceFix(val locationData: UserLocationData) : LocationMode()
+    object DeviceOnNoFix : LocationMode()
+    object DeviceOff : LocationMode()
+}
+
 @Singleton
 open class LocationProvider @Inject constructor(
     @ApplicationContext private val context: Context
@@ -40,8 +53,41 @@ open class LocationProvider @Inject constructor(
         LocationServices.getFusedLocationProviderClient(context)
     }
 
+    open fun isLocationEnabled(): Boolean {
+        val locationManager = context.getSystemService(Context.LOCATION_SERVICE) as? LocationManager
+            ?: return false
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            locationManager.isLocationEnabled
+        } else {
+            locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                    locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        }
+    }
+
+    open fun observeLocationState(): Flow<Boolean> = callbackFlow {
+        val receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                trySend(isLocationEnabled())
+            }
+        }
+        val filter = IntentFilter().apply {
+            addAction(LocationManager.MODE_CHANGED_ACTION)
+            addAction(LocationManager.PROVIDERS_CHANGED_ACTION)
+        }
+        context.registerReceiver(receiver, filter)
+        trySend(isLocationEnabled())
+        awaitClose {
+            try {
+                context.unregisterReceiver(receiver)
+            } catch (e: Exception) {}
+        }
+    }
+
     @SuppressLint("MissingPermission")
     open suspend fun getCurrentLocation(): LocationFetchResult = withContext(Dispatchers.IO) {
+        if (!isLocationEnabled()) {
+            return@withContext LocationFetchResult.Error("Location is turned off.")
+        }
         try {
             val cancellationTokenSource = CancellationTokenSource()
             val location: Location? = withTimeoutOrNull(15_000L) {
@@ -75,7 +121,7 @@ open class LocationProvider @Inject constructor(
                 )
                 LocationFetchResult.Success(data)
             } else {
-                LocationFetchResult.Error("Unable to capture GPS location. Please ensure location services are enabled.")
+                LocationFetchResult.Error("Unable to capture GPS fix.")
             }
         } catch (e: Exception) {
             LocationFetchResult.Error(e.localizedMessage ?: "Failed to fetch GPS location.")

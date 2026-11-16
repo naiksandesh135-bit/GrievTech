@@ -10,14 +10,7 @@ import com.grievtech.app.data.model.UserRole
 
 @Composable
 fun Category.labelResource(): String {
-    return when (this) {
-        Category.POTHOLES -> stringResource(R.string.issue_potholes_title)
-        Category.STREETLIGHTS -> stringResource(R.string.issue_streetlights_title)
-        Category.GARBAGE -> stringResource(R.string.issue_garbage_title)
-        Category.WATER -> stringResource(R.string.issue_water_title)
-        Category.ELECTRICITY -> stringResource(R.string.issue_electricity_title)
-        Category.OTHER -> stringResource(R.string.issue_other_title)
-    }
+    return stringResource(this.labelRes)
 }
 
 @Composable

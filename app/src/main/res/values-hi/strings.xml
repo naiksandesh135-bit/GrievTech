@@ -166,6 +166,19 @@
     <string name="back_to_home">मुख्य पृष्ठ पर लौटें</string>
     <string name="copied_to_clipboard">ट्रैकिंग आईडी क्लिपबोर्ड पर कॉपी हो गई!</string>
 
+    <!-- Phase 4 Revised Location & Geotag Rules -->
+    <string name="rule_device_gps_banner">स्थान सेवा चालू है। कोई भी फोटो मान्य है।</string>
+    <string name="rule_device_off_banner">स्थान सेवा बंद है। आपको जियो-टैग की गई फोटो अपलोड करनी होगी।</string>
+    <string name="turn_on_location">स्थान सेवा चालू करें</string>
+    <string name="badge_geotagged">जियो-टैग किया गया</string>
+    <string name="badge_no_geotag">स्थान डेटा नहीं है</string>
+    <string name="location_from_photo">फोटो से प्राप्त स्थान</string>
+    <string name="location_off_dialog_title">स्थान डेटा आवश्यक है</string>
+    <string name="location_off_dialog_desc">स्थान सेवा बंद है और इस फोटो में स्थान डेटा नहीं है। स्थान सेवा चालू करें या जियो-टैग फोटो का उपयोग करें।</string>
+    <string name="choose_geotagged_photo">जियो-टैग फोटो चुनें</string>
+    <string name="evidence_required_error">शिकायत दर्ज करने के लिए फोटो या वीडियो आवश्यक है।</string>
+    <string name="geotagged_required_error">स्थान बंद होने पर जियो-टैग फोटो आवश्यक है।</string>
+
     <!-- Enums Labels -->
     <string name="status_submitted">दर्ज की गई</string>
     <string name="status_assigned">आवंटित</string>

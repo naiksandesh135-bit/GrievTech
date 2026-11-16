@@ -166,6 +166,19 @@
     <string name="back_to_home">Back to Home</string>
     <string name="copied_to_clipboard">Tracking ID copied to clipboard!</string>
 
+    <!-- Phase 4 Revised Location & Geotag Rules -->
+    <string name="rule_device_gps_banner">Location is on. Any photo works; we will tag it with your current location.</string>
+    <string name="rule_device_off_banner">Location is off. You must upload a geotagged photo.</string>
+    <string name="turn_on_location">Turn On Location</string>
+    <string name="badge_geotagged">Geotagged</string>
+    <string name="badge_no_geotag">No location data</string>
+    <string name="location_from_photo">Location from photo</string>
+    <string name="location_off_dialog_title">Location Data Required</string>
+    <string name="location_off_dialog_desc">Location is off and this photo has no location data. Turn on location, or use a geotagged photo.</string>
+    <string name="choose_geotagged_photo">Choose Geotagged Photo</string>
+    <string name="evidence_required_error">Please add a photo or video evidence.</string>
+    <string name="geotagged_required_error">A geotagged photo or video is required when location is off.</string>
+
     <!-- Enums Labels -->
     <string name="status_submitted">Submitted</string>
     <string name="status_assigned">Assigned</string>

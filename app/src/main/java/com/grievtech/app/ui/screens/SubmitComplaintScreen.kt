@@ -6,23 +6,20 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,14 +36,24 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AssignmentTurnedIn
+import androidx.compose.material.icons.filled.Bolt
+import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.CleaningServices
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Lightbulb
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.PictureAsPdf
+import androidx.compose.material.icons.filled.PinDrop
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.filled.WaterDrop
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -113,11 +120,12 @@ import com.grievtech.app.ui.theme.GrievTechTheme
 import com.grievtech.app.ui.theme.Shapes
 import com.grievtech.app.ui.theme.Spacing
 import com.grievtech.app.util.LanguageManager
-import com.grievtech.app.util.MediaProcessResult
+import com.grievtech.app.util.LocationMode
 import com.grievtech.app.util.labelResource
 import java.io.File
+import java.util.Locale
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun SubmitComplaintScreen(
     viewModel: SubmitViewModel,
@@ -135,29 +143,34 @@ fun SubmitComplaintScreen(
         viewModel.setShowConfirmLeaveDialog(true)
     }
 
+    var tempPhotoFile by remember { mutableStateOf<File?>(null) }
     var tempPhotoUri by remember { mutableStateOf<Uri?>(null) }
+
     val cameraLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.TakePicture()
     ) { success ->
         if (success && tempPhotoUri != null) {
-            viewModel.onMediaSelected(tempPhotoUri!!)
+            val file = tempPhotoFile
+            if (file != null && file.exists()) {
+                viewModel.onCameraPhotoCaptured(file.absolutePath, tempPhotoUri!!)
+            } else {
+                viewModel.onMediaSelected(tempPhotoUri!!)
+            }
         }
     }
 
-    val galleryLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.PickVisualMedia()
-    ) { uri ->
-        if (uri != null) {
-            viewModel.onMediaSelected(uri)
-        }
-    }
-
-    val pdfLauncher = rememberLauncherForActivityResult(
+    val documentPickerLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.OpenDocument()
     ) { uri ->
         if (uri != null) {
             viewModel.onMediaSelected(uri)
         }
+    }
+
+    val mediaLocationPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { _ ->
+        documentPickerLauncher.launch(arrayOf("image/*", "video/*", "application/pdf"))
     }
 
     val audioPermissionLauncher = rememberLauncherForActivityResult(
@@ -223,6 +236,7 @@ fun SubmitComplaintScreen(
                     Spacer(modifier = Modifier.height(Spacing.md))
                 }
 
+                // 1. Category Card
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = Shapes.medium,
@@ -235,32 +249,37 @@ fun SubmitComplaintScreen(
                             color = MaterialTheme.colorScheme.onSurface
                         )
                         Spacer(modifier = Modifier.height(Spacing.sm))
-                        Column(verticalArrangement = Arrangement.spacedBy(Spacing.xs)) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(Spacing.xs)
-                            ) {
-                                Category.entries.take(3).forEach { cat ->
-                                    FilterChip(
-                                        selected = uiState.category == cat,
-                                        onClick = { viewModel.onCategoryChanged(cat) },
-                                        label = { Text(cat.labelResource()) },
-                                        modifier = Modifier.weight(1f)
-                                    )
-                                }
-                            }
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(Spacing.xs)
-                            ) {
-                                Category.entries.drop(3).forEach { cat ->
-                                    FilterChip(
-                                        selected = uiState.category == cat,
-                                        onClick = { viewModel.onCategoryChanged(cat) },
-                                        label = { Text(cat.labelResource()) },
-                                        modifier = Modifier.weight(1f)
-                                    )
-                                }
+                        FlowRow(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(Spacing.xs),
+                            verticalArrangement = Arrangement.spacedBy(Spacing.xs)
+                        ) {
+                            Category.entries.forEach { cat ->
+                                FilterChip(
+                                    selected = uiState.category == cat,
+                                    onClick = { viewModel.onCategoryChanged(cat) },
+                                    label = {
+                                        Text(
+                                            text = cat.labelResource(),
+                                            style = MaterialTheme.typography.labelMedium
+                                        )
+                                    },
+                                    leadingIcon = {
+                                        Icon(
+                                            imageVector = when (cat) {
+                                                Category.POTHOLES -> Icons.Default.Build
+                                                Category.STREETLIGHTS -> Icons.Default.Lightbulb
+                                                Category.GARBAGE -> Icons.Default.Delete
+                                                Category.WATER -> Icons.Default.WaterDrop
+                                                Category.ELECTRICITY -> Icons.Default.Bolt
+                                                Category.SANITATION -> Icons.Default.CleaningServices
+                                                Category.OTHER -> Icons.Default.AssignmentTurnedIn
+                                            },
+                                            contentDescription = null,
+                                            modifier = Modifier.size(16.dp)
+                                        )
+                                    }
+                                )
                             }
                         }
                     }
@@ -268,6 +287,7 @@ fun SubmitComplaintScreen(
 
                 Spacer(modifier = Modifier.height(Spacing.md))
 
+                // 2. Title & Description Card
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = Shapes.medium,
@@ -342,6 +362,7 @@ fun SubmitComplaintScreen(
 
                 Spacer(modifier = Modifier.height(Spacing.md))
 
+                // 3. Priority Card
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = Shapes.medium,
@@ -401,6 +422,7 @@ fun SubmitComplaintScreen(
 
                 Spacer(modifier = Modifier.height(Spacing.md))
 
+                // 4. Evidence Section Card
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = Shapes.medium,
@@ -411,6 +433,46 @@ fun SubmitComplaintScreen(
                             text = stringResource(R.string.evidence_label),
                             style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
                         )
+
+                        Spacer(modifier = Modifier.height(Spacing.xs))
+
+                        // Live Location Mode Banner
+                        Surface(
+                            shape = Shapes.small,
+                            color = if (uiState.locationMode is LocationMode.DeviceFix) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.secondaryContainer,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Row(
+                                modifier = Modifier.padding(Spacing.sm),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    imageVector = if (uiState.locationMode is LocationMode.DeviceFix) Icons.Default.LocationOn else Icons.Default.Warning,
+                                    contentDescription = null,
+                                    tint = if (uiState.locationMode is LocationMode.DeviceFix) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                                Spacer(modifier = Modifier.width(Spacing.xs))
+                                Text(
+                                    text = if (uiState.locationMode is LocationMode.DeviceFix) {
+                                        stringResource(R.string.rule_device_gps_banner)
+                                    } else {
+                                        stringResource(R.string.rule_device_off_banner)
+                                    },
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = if (uiState.locationMode is LocationMode.DeviceFix) MaterialTheme.colorScheme.onPrimaryContainer else MaterialTheme.colorScheme.onSecondaryContainer,
+                                    modifier = Modifier.weight(1f)
+                                )
+                                if (uiState.locationMode !is LocationMode.DeviceFix) {
+                                    TextButton(onClick = {
+                                        context.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+                                    }) {
+                                        Text(stringResource(R.string.turn_on_location), style = MaterialTheme.typography.labelSmall)
+                                    }
+                                }
+                            }
+                        }
+
                         Spacer(modifier = Modifier.height(Spacing.sm))
 
                         Row(
@@ -422,6 +484,7 @@ fun SubmitComplaintScreen(
                                 onClick = {
                                     val photoFile = File(context.externalCacheDir, "camera_photo_${System.currentTimeMillis()}.jpg")
                                     val uri = FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", photoFile)
+                                    tempPhotoFile = photoFile
                                     tempPhotoUri = uri
                                     cameraLauncher.launch(uri)
                                 },
@@ -431,7 +494,11 @@ fun SubmitComplaintScreen(
                             GrievButton(
                                 text = stringResource(R.string.pick_gallery),
                                 onClick = {
-                                    galleryLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
+                                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+                                        mediaLocationPermissionLauncher.launch(Manifest.permission.ACCESS_MEDIA_LOCATION)
+                                    } else {
+                                        documentPickerLauncher.launch(arrayOf("image/*", "video/*", "application/pdf"))
+                                    }
                                 },
                                 type = GrievButtonType.OUTLINED,
                                 modifier = Modifier.weight(1f)
@@ -439,62 +506,114 @@ fun SubmitComplaintScreen(
                             GrievButton(
                                 text = stringResource(R.string.attach_pdf),
                                 onClick = {
-                                    pdfLauncher.launch(arrayOf("application/pdf"))
+                                    documentPickerLauncher.launch(arrayOf("application/pdf"))
                                 },
                                 type = GrievButtonType.OUTLINED,
                                 modifier = Modifier.weight(1f)
                             )
                         }
 
+                        // Media Attachment Preview with Geotag Badge & Location Info
                         if (uiState.selectedMediaUri != null) {
                             Spacer(modifier = Modifier.height(Spacing.md))
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(140.dp)
-                                    .clip(Shapes.small)
-                                    .background(MaterialTheme.colorScheme.surfaceVariant)
+                            Card(
+                                modifier = Modifier.fillMaxWidth(),
+                                shape = Shapes.small,
+                                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
                             ) {
-                                if (uiState.selectedMediaType == MediaType.IMAGE) {
-                                    Image(
-                                        painter = rememberAsyncImagePainter(model = uiState.selectedMediaUri),
-                                        contentDescription = "Attachment Preview",
-                                        contentScale = ContentScale.Crop,
-                                        modifier = Modifier.fillMaxSize()
-                                    )
-                                } else {
-                                    Row(
-                                        modifier = Modifier.fillMaxSize().padding(Spacing.md),
-                                        verticalAlignment = Alignment.CenterVertically,
-                                        horizontalArrangement = Arrangement.Center
+                                Column(modifier = Modifier.padding(Spacing.sm)) {
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(140.dp)
+                                            .clip(Shapes.small)
+                                            .background(Color.Black.copy(alpha = 0.05f))
                                     ) {
-                                        Icon(
-                                            imageVector = if (uiState.selectedMediaType == MediaType.PDF) Icons.Default.PictureAsPdf else Icons.Default.Image,
-                                            contentDescription = null,
-                                            tint = MaterialTheme.colorScheme.primary,
-                                            modifier = Modifier.size(40.dp)
-                                        )
-                                        Spacer(modifier = Modifier.width(Spacing.sm))
+                                        if (uiState.selectedMediaType == MediaType.IMAGE) {
+                                            Image(
+                                                painter = rememberAsyncImagePainter(model = uiState.selectedMediaUri),
+                                                contentDescription = "Attachment Preview",
+                                                contentScale = ContentScale.Crop,
+                                                modifier = Modifier.fillMaxSize()
+                                            )
+                                        } else {
+                                            Row(
+                                                modifier = Modifier.fillMaxSize().padding(Spacing.md),
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.Center
+                                            ) {
+                                                Icon(
+                                                    imageVector = if (uiState.selectedMediaType == MediaType.PDF) Icons.Default.PictureAsPdf else Icons.Default.Image,
+                                                    contentDescription = null,
+                                                    tint = MaterialTheme.colorScheme.primary,
+                                                    modifier = Modifier.size(40.dp)
+                                                )
+                                                Spacer(modifier = Modifier.width(Spacing.sm))
+                                                Text(
+                                                    text = uiState.selectedMediaName ?: "Attached Media Document",
+                                                    style = MaterialTheme.typography.bodyMedium
+                                                )
+                                            }
+                                        }
+
+                                        // Geotag Status Badge
+                                        Surface(
+                                            shape = CircleShape,
+                                            color = if (uiState.attachmentGeoPoint != null) Color(0xFF2E7D32) else Color(0xFFD84315),
+                                            modifier = Modifier.align(Alignment.TopStart).padding(Spacing.xs)
+                                        ) {
+                                            Row(
+                                                modifier = Modifier.padding(horizontal = Spacing.sm, vertical = Spacing.xxs),
+                                                verticalAlignment = Alignment.CenterVertically
+                                            ) {
+                                                Icon(
+                                                    imageVector = Icons.Default.PinDrop,
+                                                    contentDescription = null,
+                                                    tint = Color.White,
+                                                    modifier = Modifier.size(12.dp)
+                                                )
+                                                Spacer(modifier = Modifier.width(Spacing.xxs))
+                                                Text(
+                                                    text = if (uiState.attachmentGeoPoint != null) stringResource(R.string.badge_geotagged) else stringResource(R.string.badge_no_geotag),
+                                                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 10.sp),
+                                                    color = Color.White
+                                                )
+                                            }
+                                        }
+
+                                        IconButton(
+                                            onClick = viewModel::clearMedia,
+                                            modifier = Modifier
+                                                .align(Alignment.TopEnd)
+                                                .padding(Spacing.xs)
+                                                .background(Color.Black.copy(alpha = 0.6f), CircleShape)
+                                        ) {
+                                            Icon(
+                                                imageVector = Icons.Default.Close,
+                                                contentDescription = "Remove Media",
+                                                tint = Color.White
+                                            )
+                                        }
+                                    }
+
+                                    if (uiState.attachmentGeoPoint != null) {
+                                        val gp = uiState.attachmentGeoPoint!!
+                                        Spacer(modifier = Modifier.height(Spacing.xs))
                                         Text(
-                                            text = uiState.selectedMediaName ?: "Attached Media Document",
-                                            style = MaterialTheme.typography.bodyMedium,
-                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                            text = String.format(Locale.US, "GPS: %.4f° N, %.4f° E", gp.latitude, gp.longitude),
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = MaterialTheme.colorScheme.primary
                                         )
                                     }
-                                }
 
-                                IconButton(
-                                    onClick = viewModel::clearMedia,
-                                    modifier = Modifier
-                                        .align(Alignment.TopEnd)
-                                        .padding(Spacing.xs)
-                                        .background(Color.Black.copy(alpha = 0.6f), CircleShape)
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Default.Close,
-                                        contentDescription = "Remove Media",
-                                        tint = Color.White
-                                    )
+                                    if (uiState.mediaValidationError != null) {
+                                        Spacer(modifier = Modifier.height(Spacing.xs))
+                                        Text(
+                                            text = uiState.mediaValidationError!!,
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.error
+                                        )
+                                    }
                                 }
                             }
                         }
@@ -503,6 +622,7 @@ fun SubmitComplaintScreen(
 
                 Spacer(modifier = Modifier.height(Spacing.md))
 
+                // 5. Location Section & Mini Map
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     shape = Shapes.medium,
@@ -520,12 +640,14 @@ fun SubmitComplaintScreen(
                             )
                             Spacer(modifier = Modifier.width(Spacing.xs))
                             Text(
-                                text = stringResource(R.string.location_label),
+                                text = if (uiState.locationSource == "photo_exif") stringResource(R.string.location_from_photo) else stringResource(R.string.location_label),
                                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                                 modifier = Modifier.weight(1f)
                             )
-                            TextButton(onClick = viewModel::fetchLocation) {
-                                Text(stringResource(R.string.retry))
+                            if (uiState.locationMode is LocationMode.DeviceFix) {
+                                TextButton(onClick = viewModel::fetchLocation) {
+                                    Text(stringResource(R.string.retry))
+                                }
                             }
                         }
 
@@ -564,14 +686,16 @@ fun SubmitComplaintScreen(
                                     modifier = Modifier.fillMaxSize(),
                                     cameraPositionState = cameraPositionState,
                                     onMapClick = { newLatLng ->
-                                        viewModel.updateLocationPin(newLatLng.latitude, newLatLng.longitude)
+                                        if (uiState.locationMode is LocationMode.DeviceFix) {
+                                            viewModel.updateLocationPin(newLatLng.latitude, newLatLng.longitude)
+                                        }
                                     }
                                 ) {
                                     Marker(
                                         state = MarkerState(position = latLng),
                                         title = "Complaint Location",
                                         snippet = loc.address,
-                                        draggable = true
+                                        draggable = uiState.locationMode is LocationMode.DeviceFix
                                     )
                                 }
                             }
@@ -587,11 +711,6 @@ fun SubmitComplaintScreen(
 
                 Spacer(modifier = Modifier.height(Spacing.xl))
 
-                val isFormValid = uiState.title.isNotBlank() &&
-                        uiState.description.length >= 20 &&
-                        uiState.locationData != null &&
-                        uiState.submissionState !is SubmissionState.Uploading
-
                 if (uiState.submissionState is SubmissionState.Uploading) {
                     LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                     Spacer(modifier = Modifier.height(Spacing.sm))
@@ -600,7 +719,7 @@ fun SubmitComplaintScreen(
                 GrievButton(
                     text = stringResource(R.string.submit_btn),
                     onClick = viewModel::submitComplaint,
-                    enabled = isFormValid,
+                    enabled = viewModel.isFormValid(),
                     type = GrievButtonType.PRIMARY,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -670,6 +789,31 @@ fun SubmitComplaintScreen(
                 }
             }
         }
+    }
+
+    // Location Off / No EXIF GPS Dialog
+    if (uiState.showLocationOffDialog) {
+        AlertDialog(
+            onDismissRequest = { viewModel.setShowLocationOffDialog(false) },
+            title = { Text(stringResource(R.string.location_off_dialog_title)) },
+            text = { Text(stringResource(R.string.location_off_dialog_desc)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.setShowLocationOffDialog(false)
+                    context.startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+                }) {
+                    Text(stringResource(R.string.turn_on_location))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = {
+                    viewModel.setShowLocationOffDialog(false)
+                    documentPickerLauncher.launch(arrayOf("image/*", "video/*"))
+                }) {
+                    Text(stringResource(R.string.choose_geotagged_photo))
+                }
+            }
+        )
     }
 
     if (uiState.showConfirmLeaveDialog) {

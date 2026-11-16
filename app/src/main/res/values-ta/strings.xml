@@ -166,6 +166,19 @@
     <string name="back_to_home">முகப்புக்குத் திரும்பு</string>
     <string name="copied_to_clipboard">ஐடி நகலெடுக்கப்பட்டது!</string>
 
+    <!-- Phase 4 Revised Location & Geotag Rules -->
+    <string name="rule_device_gps_banner">இருப்பிடம் இயக்கத்தில் உள்ளது. எந்த புகைப்படமும் செல்லுபடியாகும்.</string>
+    <string name="rule_device_off_banner">இருப்பிடம் முடங்கியுள்ளது. ஜியோ-டேக் செய்யப்பட்ட புகைப்படத்தை பதிவேற்ற வேண்டும்.</string>
+    <string name="turn_on_location">இருப்பிடத்தை இயக்கு</string>
+    <string name="badge_geotagged">ஜியோ-டேக் செய்யப்பட்டது</string>
+    <string name="badge_no_geotag">இருப்பிடத் தரவு இல்லை</string>
+    <string name="location_from_photo">புகைப்படத்திலிருந்து இருப்பிடம்</string>
+    <string name="location_off_dialog_title">இருப்பிடத் தரவு தேவை</string>
+    <string name="location_off_dialog_desc">இருப்பிடம் முடங்கியுள்ளது மற்றும் புகைப்படத்தில் இருப்பிடத் தரவு இல்லை. இருப்பிடத்தை இயக்கவும் அல்லது ஜியோ-டேக் புகைப்படத்தைப் பயன்படுத்தவும்.</string>
+    <string name="choose_geotagged_photo">ஜியோ-டேக் புகைப்படத்தைத் தேர்ந்தெடுக்கெடு</string>
+    <string name="evidence_required_error">புகார் அளிக்க புகைப்படம் அல்லது வீடியோ தேவை.</string>
+    <string name="geotagged_required_error">இருப்பிடம் முடங்கியிருக்கும் போது ஜியோ-டேக் புகைப்படம் தேவை.</string>
+
     <!-- Enums Labels -->
     <string name="status_submitted">சமர்ப்பிக்கப்பட்டது</string>
     <string name="status_assigned">ஒதுக்கப்பட்டது</string>

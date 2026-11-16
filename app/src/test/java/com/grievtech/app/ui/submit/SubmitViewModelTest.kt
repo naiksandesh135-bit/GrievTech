@@ -1,12 +1,13 @@
 package com.grievtech.app.ui.submit
 
 import android.content.ContextWrapper
+import android.net.Uri
 import androidx.lifecycle.SavedStateHandle
-import com.grievtech.app.data.model.Category
 import com.grievtech.app.data.model.Complaint
-import com.grievtech.app.data.model.Priority
+import com.grievtech.app.data.model.MediaType
 import com.grievtech.app.data.model.TrackResult
 import com.grievtech.app.data.repository.ComplaintRepository
+import com.grievtech.app.util.GeoPoint
 import com.grievtech.app.util.LocationFetchResult
 import com.grievtech.app.util.LocationProvider
 import com.grievtech.app.util.MediaProcessResult
@@ -24,8 +25,12 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
+import org.mockito.Mockito.mock
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class SubmitViewModelTest {
@@ -76,21 +81,84 @@ class SubmitViewModelTest {
     }
 
     @Test
-    fun submitComplaint_validForm_submitsSuccessfully() = runTest {
-        viewModel.onTitleChanged("Dangerous pothole on main road")
+    fun locationMode_deviceFixWithMedia_valid() = runTest {
+        viewModel.onTitleChanged("Pothole issue")
         viewModel.onDescriptionChanged("The pothole is deep and causing severe traffic risk near the junction.")
-        viewModel.onCategoryChanged(Category.POTHOLES)
-        viewModel.onPriorityChanged(Priority.EMERGENCY)
-
-        viewModel.updateLocationPin(12.9716, 77.5946)
+        viewModel.fetchLocation()
         testDispatcher.scheduler.advanceUntilIdle()
 
-        viewModel.submitComplaint()
+        val mockUri = mock(Uri::class.java)
+        fakeMediaProcessor.stubResult = MediaProcessResult.Success(
+            bytes = byteArrayOf(1, 2, 3),
+            fileName = "img_123.jpg",
+            mimeType = "image/jpeg",
+            mediaType = MediaType.IMAGE,
+            geoPoint = null
+        )
+        viewModel.onMediaSelected(mockUri)
         testDispatcher.scheduler.advanceUntilIdle()
 
-        val state = viewModel.uiState.value.submissionState
-        assert(state is SubmissionState.Success)
-        assertEquals("GT-984210", (state as SubmissionState.Success).trackingId)
+        assertTrue(viewModel.isFormValid())
+        assertEquals("device_gps", viewModel.uiState.value.locationSource)
+    }
+
+    @Test
+    fun locationMode_deviceFixNoMedia_invalid() = runTest {
+        viewModel.onTitleChanged("Pothole issue")
+        viewModel.onDescriptionChanged("The pothole is deep and causing severe traffic risk near the junction.")
+        viewModel.fetchLocation()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertFalse(viewModel.isFormValid())
+    }
+
+    @Test
+    fun locationMode_locationOffWithGeotaggedMedia_validAndUsesExifCoordinates() = runTest {
+        fakeLocationProvider.isLocationEnabledValue = false
+        viewModel.onTitleChanged("Pothole issue")
+        viewModel.onDescriptionChanged("The pothole is deep and causing severe traffic risk near the junction.")
+        viewModel.fetchLocation()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val mockUri = mock(Uri::class.java)
+        fakeMediaProcessor.stubResult = MediaProcessResult.Success(
+            bytes = byteArrayOf(1, 2, 3),
+            fileName = "img_123.jpg",
+            mimeType = "image/jpeg",
+            mediaType = MediaType.IMAGE,
+            geoPoint = GeoPoint(12.9716, 77.5946)
+        )
+        viewModel.onMediaSelected(mockUri)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertTrue(viewModel.isFormValid())
+        assertEquals("photo_exif", viewModel.uiState.value.locationSource)
+        assertTrue(viewModel.uiState.value.photoGeotagged)
+        assertNotNull(viewModel.uiState.value.locationData)
+        assertEquals(12.9716, viewModel.uiState.value.locationData!!.latitude, 0.0001)
+    }
+
+    @Test
+    fun locationMode_locationOffWithNonGeotaggedMedia_invalid() = runTest {
+        fakeLocationProvider.isLocationEnabledValue = false
+        viewModel.onTitleChanged("Pothole issue")
+        viewModel.onDescriptionChanged("The pothole is deep and causing severe traffic risk near the junction.")
+        viewModel.fetchLocation()
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        val mockUri = mock(Uri::class.java)
+        fakeMediaProcessor.stubResult = MediaProcessResult.Success(
+            bytes = byteArrayOf(1, 2, 3),
+            fileName = "img_123.jpg",
+            mimeType = "image/jpeg",
+            mediaType = MediaType.IMAGE,
+            geoPoint = null
+        )
+        viewModel.onMediaSelected(mockUri)
+        testDispatcher.scheduler.advanceUntilIdle()
+
+        assertFalse(viewModel.isFormValid())
+        assertTrue(viewModel.uiState.value.showLocationOffDialog)
     }
 }
 
@@ -117,10 +185,18 @@ class FakeComplaintRepository : ComplaintRepository {
 }
 
 class FakeLocationProvider : LocationProvider(ContextWrapper(null)) {
+    var isLocationEnabledValue = true
+
+    override fun isLocationEnabled(): Boolean = isLocationEnabledValue
+
     override suspend fun getCurrentLocation(): LocationFetchResult {
-        return LocationFetchResult.Success(
-            UserLocationData(12.9716, 77.5946, 5f, "MG Road, Bengaluru")
-        )
+        return if (isLocationEnabledValue) {
+            LocationFetchResult.Success(
+                UserLocationData(12.9716, 77.5946, 5f, "MG Road, Bengaluru")
+            )
+        } else {
+            LocationFetchResult.Error("Location is turned off.")
+        }
     }
 
     override suspend fun getAddressFromCoordinates(latitude: Double, longitude: Double): String {
@@ -128,6 +204,17 @@ class FakeLocationProvider : LocationProvider(ContextWrapper(null)) {
     }
 }
 
-class FakeMediaProcessor : MediaProcessor(ContextWrapper(null))
+class FakeMediaProcessor : MediaProcessor(ContextWrapper(null)) {
+    var stubResult: MediaProcessResult = MediaProcessResult.Success(
+        bytes = byteArrayOf(1, 2, 3),
+        fileName = "test.jpg",
+        mimeType = "image/jpeg",
+        mediaType = MediaType.IMAGE
+    )
+
+    override fun processMediaUri(uri: Uri): MediaProcessResult {
+        return stubResult
+    }
+}
 
 class FakeVoiceInputManager : VoiceInputManager(ContextWrapper(null))

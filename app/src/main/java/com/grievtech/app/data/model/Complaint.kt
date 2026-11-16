@@ -18,6 +18,8 @@ data class Complaint(
     @SerialName("address") val address: String? = null,
     @SerialName("media_url") val mediaUrl: String? = null,
     @SerialName("media_type") val mediaType: MediaType? = null,
+    @SerialName("location_source") val locationSource: String? = "device_gps",
+    @SerialName("photo_geotagged") val photoGeotagged: Boolean = false,
     @SerialName("duplicate_of") val duplicateOf: String? = null,
     @SerialName("report_count") val reportCount: Int = 1,
     @SerialName("created_at") val createdAt: String? = null,

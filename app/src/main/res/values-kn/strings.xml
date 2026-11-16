@@ -166,6 +166,19 @@
     <string name="back_to_home">ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ</string>
     <string name="copied_to_clipboard">ಟ್ರ್ಯಾಕಿಂಗ್ ಐಡಿ ಕಾಪಿ ಮಾಡಲಾಗಿದೆ!</string>
 
+    <!-- Phase 4 Revised Location & Geotag Rules -->
+    <string name="rule_device_gps_banner">ಸ್ಥಳ ಸೇವೆಯು ಸಕ್ರಿಯವಾಗಿದೆ. ಯಾವುದೇ ಫೋಟೋ ಸ್ವೀಕಾರಾರ್ಹ.</string>
+    <string name="rule_device_off_banner">ಸ್ಥಳ ಸೇವೆಯು ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ನೀವು ಜಿಯೋ-ಟ್ಯಾಗ್ ಮಾಡಿದ ಫೋಟೋ ಅಪ್‌ಲೋಡ್ ಮಾಡಬೇಕು.</string>
+    <string name="turn_on_location">ಸ್ಥಳ ಸೇವೆ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+    <string name="badge_geotagged">ಜಿಯೋ-ಟ್ಯಾಗ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="badge_no_geotag">ಸ್ಥಳದ ಮಾಹಿತಿ ಇಲ್ಲ</string>
+    <string name="location_from_photo">ಫೋಟೋದಿಂದ ಪಡೆದ ಸ್ಥಳ</string>
+    <string name="location_off_dialog_title">ಸ್ಥಳದ ಮಾಹಿತಿ ಅಗತ್ಯವಿದೆ</string>
+    <string name="location_off_dialog_desc">ಸ್ಥಳ ಸೇವೆ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ ಮತ್ತು ಈ ಫೋಟೋದಲ್ಲಿ ಸ್ಥಳದ ಮಾಹಿತಿ ಇಲ್ಲ. ಸ್ಥಳ ಸೇವೆ ಸಕ್ರಿಯಗೊಳಿಸಿ ಅಥವಾ ಜಿಯೋ-ಟ್ಯಾಗ್ ಫೋಟೋ ಬಳಸಿ.</string>
+    <string name="choose_geotagged_photo">ಜಿಯೋ-ಟ್ಯಾಗ್ ಫೋಟೋ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="evidence_required_error">ದೂರು ಸಲ್ಲಿಸಲು ಫೋಟೋ ಅಥವಾ ವೀಡಿಯೋ ಲಗತ್ತು ಅಗತ್ಯವಿದೆ.</string>
+    <string name="geotagged_required_error">ಸ್ಥಳ ನಿಷ್ಕ್ರಿಯವಾಗಿದ್ದಾಗ ಜಿಯೋ-ಟ್ಯಾಗ್ ಫೋಟೋ ಅಗತ್ಯವಿದೆ.</string>
+
     <!-- Enums Labels -->
     <string name="status_submitted">ಸಲ್ಲಿಸಲಾಗಿದೆ</string>
     <string name="status_assigned">ನಿಯೋಜಿಸಲಾಗಿದೆ</string>
